@@ -1,4 +1,4 @@
-package com.wxy.ics.admin.domain;
+package com.wxy.ics.admin.entity;
 
 import java.util.Date;
 
