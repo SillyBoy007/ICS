@@ -7,12 +7,18 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
+
+/**
+ *consumer启动类
+ * @author wxy
+ * @date 2019/03/14
+ */
 @SpringBootApplication
 @EnableEurekaClient
 @ComponentScan("com.wxy.ics")
 @EnableFeignClients(basePackages = {"com.wxy.ics"})
-public class ICSConsumerFeign {
+public class IcsConsumerFeign {
     public static void main(String[] args) {
-        SpringApplication.run(ICSConsumerFeign.class,args);
+        SpringApplication.run(IcsConsumerFeign.class,args);
     }
 }

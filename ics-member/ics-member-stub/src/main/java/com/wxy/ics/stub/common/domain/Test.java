@@ -1,7 +1,11 @@
 package com.wxy.ics.stub.common.domain;
 
 import java.util.Date;
-
+/**
+ * Test实体
+ * @author wxy
+ * @date 2019/03/14
+ */
 public class Test {
 
     private Long testId;

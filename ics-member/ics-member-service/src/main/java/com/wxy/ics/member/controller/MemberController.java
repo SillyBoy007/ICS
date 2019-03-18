@@ -8,7 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import static com.wxy.ics.common.enums.CodeMsg.*;
-
+/**
+ *MemberController
+ * @author wxy
+ * @date 2019/03/14
+ */
 @RestController
 @RequestMapping("/api/member")
 public class MemberController extends BaseController {

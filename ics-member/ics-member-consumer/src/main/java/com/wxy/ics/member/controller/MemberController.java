@@ -8,6 +8,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * 会员Controller
+ *
+ * @author wxy
+ * @date 2019/03/14
+ */
 @RestController
 @RequestMapping("/client/member")
 public class MemberController  {

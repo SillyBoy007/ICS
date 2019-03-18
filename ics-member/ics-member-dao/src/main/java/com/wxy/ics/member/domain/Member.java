@@ -2,292 +2,272 @@ package com.wxy.ics.member.domain;
 
 import java.util.Date;
 import javax.persistence.*;
-
+/**
+ * Member
+ * @author wxy
+ * @date 2019/03/14
+ */
 public class Member {
     /**
-     * 自增主键
+     * 主键
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     /**
-     * 用户id
+     * 渠道
      */
-    @Column(name = "user_id")
-    private Long userId;
+    private String channel;
 
     /**
-     * 用户的标识，对当前公众号唯一
+     * 用户编号
+     */
+    @Column(name = "user_code")
+    private String userCode;
+
+    /**
+     * 手机号
+     */
+    private String mobile;
+
+    /**
+     * 微信open_id
      */
     @Column(name = "open_id")
     private String openId;
 
     /**
-     * 联合union_id
+     * 微信union_id
      */
     @Column(name = "union_id")
-    private Long unionId;
+    private String unionId;
 
     /**
-     * 1.h5商城 2.今日断码
+     * 微信头像
      */
-    private Integer type;
+    @Column(name = "wx_avator")
+    private String wxAvator;
 
     /**
-     * 用户第三方标识
+     * 微信昵称
      */
-    @Column(name = "third_party_id")
-    private String thirdPartyId;
+    @Column(name = "wx_nike_name")
+    private String wxNikeName;
 
     /**
-     * 1.有效 2冻结 
+     * 用户状态
      */
-    private Integer status;
+    @Column(name = "user_status")
+    private Boolean userStatus;
 
     /**
-     * 创建时间
+     * 邀请人
      */
-    @Column(name = "create_time")
-    private Date createTime;
+    @Column(name = "invite_user_id")
+    private String inviteUserId;
 
     /**
-     * 创建人
+     * 最后登录时间
      */
-    @Column(name = "create_by")
-    private String createBy;
+    @Column(name = "login_time")
+    private Date loginTime;
 
     /**
-     * 修改时间
-     */
-    @Column(name = "update_time")
-    private Date updateTime;
-
-    /**
-     * 修改人
-     */
-    @Column(name = "update_by")
-    private String updateBy;
-
-    /**
-     * 0:未删除，1已删除
-     */
-    @Column(name = "is_delete")
-    private Boolean isDelete;
-
-    /**
-     * 获取自增主键
+     * 获取主键
      *
-     * @return id - 自增主键
+     * @return id - 主键
      */
     public Long getId() {
         return id;
     }
 
     /**
-     * 设置自增主键
+     * 设置主键
      *
-     * @param id 自增主键
+     * @param id 主键
      */
     public void setId(Long id) {
         this.id = id;
     }
 
     /**
-     * 获取用户id
+     * 获取渠道
      *
-     * @return user_id - 用户id
+     * @return channel - 渠道
      */
-    public Long getUserId() {
-        return userId;
+    public String getChannel() {
+        return channel;
     }
 
     /**
-     * 设置用户id
+     * 设置渠道
      *
-     * @param userId 用户id
+     * @param channel 渠道
      */
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setChannel(String channel) {
+        this.channel = channel == null ? null : channel.trim();
     }
 
     /**
-     * 获取用户的标识，对当前公众号唯一
+     * 获取用户编号
      *
-     * @return open_id - 用户的标识，对当前公众号唯一
+     * @return user_code - 用户编号
+     */
+    public String getUserCode() {
+        return userCode;
+    }
+
+    /**
+     * 设置用户编号
+     *
+     * @param userCode 用户编号
+     */
+    public void setUserCode(String userCode) {
+        this.userCode = userCode == null ? null : userCode.trim();
+    }
+
+    /**
+     * 获取手机号
+     *
+     * @return mobile - 手机号
+     */
+    public String getMobile() {
+        return mobile;
+    }
+
+    /**
+     * 设置手机号
+     *
+     * @param mobile 手机号
+     */
+    public void setMobile(String mobile) {
+        this.mobile = mobile == null ? null : mobile.trim();
+    }
+
+    /**
+     * 获取微信open_id
+     *
+     * @return open_id - 微信open_id
      */
     public String getOpenId() {
         return openId;
     }
 
     /**
-     * 设置用户的标识，对当前公众号唯一
+     * 设置微信open_id
      *
-     * @param openId 用户的标识，对当前公众号唯一
+     * @param openId 微信open_id
      */
     public void setOpenId(String openId) {
         this.openId = openId == null ? null : openId.trim();
     }
 
     /**
-     * 获取联合union_id
+     * 获取微信union_id
      *
-     * @return union_id - 联合union_id
+     * @return union_id - 微信union_id
      */
-    public Long getUnionId() {
+    public String getUnionId() {
         return unionId;
     }
 
     /**
-     * 设置联合union_id
+     * 设置微信union_id
      *
-     * @param unionId 联合union_id
+     * @param unionId 微信union_id
      */
-    public void setUnionId(Long unionId) {
-        this.unionId = unionId;
+    public void setUnionId(String unionId) {
+        this.unionId = unionId == null ? null : unionId.trim();
     }
 
     /**
-     * 获取1.h5商城 2.今日断码
+     * 获取微信头像
      *
-     * @return type - 1.h5商城 2.今日断码
+     * @return wx_avator - 微信头像
      */
-    public Integer getType() {
-        return type;
+    public String getWxAvator() {
+        return wxAvator;
     }
 
     /**
-     * 设置1.h5商城 2.今日断码
+     * 设置微信头像
      *
-     * @param type 1.h5商城 2.今日断码
+     * @param wxAvator 微信头像
      */
-    public void setType(Integer type) {
-        this.type = type;
+    public void setWxAvator(String wxAvator) {
+        this.wxAvator = wxAvator == null ? null : wxAvator.trim();
     }
 
     /**
-     * 获取用户第三方标识
+     * 获取微信昵称
      *
-     * @return third_party_id - 用户第三方标识
+     * @return wx_nike_name - 微信昵称
      */
-    public String getThirdPartyId() {
-        return thirdPartyId;
+    public String getWxNikeName() {
+        return wxNikeName;
     }
 
     /**
-     * 设置用户第三方标识
+     * 设置微信昵称
      *
-     * @param thirdPartyId 用户第三方标识
+     * @param wxNikeName 微信昵称
      */
-    public void setThirdPartyId(String thirdPartyId) {
-        this.thirdPartyId = thirdPartyId == null ? null : thirdPartyId.trim();
+    public void setWxNikeName(String wxNikeName) {
+        this.wxNikeName = wxNikeName == null ? null : wxNikeName.trim();
     }
 
     /**
-     * 获取1.有效 2冻结 
+     * 获取用户状态
      *
-     * @return status - 1.有效 2冻结 
+     * @return user_status - 用户状态
      */
-    public Integer getStatus() {
-        return status;
+    public Boolean getUserStatus() {
+        return userStatus;
     }
 
     /**
-     * 设置1.有效 2冻结 
+     * 设置用户状态
      *
-     * @param status 1.有效 2冻结 
+     * @param userStatus 用户状态
      */
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setUserStatus(Boolean userStatus) {
+        this.userStatus = userStatus;
     }
 
     /**
-     * 获取创建时间
+     * 获取邀请人
      *
-     * @return create_time - 创建时间
+     * @return invite_user_id - 邀请人
      */
-    public Date getCreateTime() {
-        return createTime;
+    public String getInviteUserId() {
+        return inviteUserId;
     }
 
     /**
-     * 设置创建时间
+     * 设置邀请人
      *
-     * @param createTime 创建时间
+     * @param inviteUserId 邀请人
      */
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setInviteUserId(String inviteUserId) {
+        this.inviteUserId = inviteUserId == null ? null : inviteUserId.trim();
     }
 
     /**
-     * 获取创建人
+     * 获取最后登录时间
      *
-     * @return create_by - 创建人
+     * @return login_time - 最后登录时间
      */
-    public String getCreateBy() {
-        return createBy;
+    public Date getLoginTime() {
+        return loginTime;
     }
 
     /**
-     * 设置创建人
+     * 设置最后登录时间
      *
-     * @param createBy 创建人
+     * @param loginTime 最后登录时间
      */
-    public void setCreateBy(String createBy) {
-        this.createBy = createBy == null ? null : createBy.trim();
-    }
-
-    /**
-     * 获取修改时间
-     *
-     * @return update_time - 修改时间
-     */
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    /**
-     * 设置修改时间
-     *
-     * @param updateTime 修改时间
-     */
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    /**
-     * 获取修改人
-     *
-     * @return update_by - 修改人
-     */
-    public String getUpdateBy() {
-        return updateBy;
-    }
-
-    /**
-     * 设置修改人
-     *
-     * @param updateBy 修改人
-     */
-    public void setUpdateBy(String updateBy) {
-        this.updateBy = updateBy == null ? null : updateBy.trim();
-    }
-
-    /**
-     * 获取0:未删除，1已删除
-     *
-     * @return is_delete - 0:未删除，1已删除
-     */
-    public Boolean getIsDelete() {
-        return isDelete;
-    }
-
-    /**
-     * 设置0:未删除，1已删除
-     *
-     * @param isDelete 0:未删除，1已删除
-     */
-    public void setIsDelete(Boolean isDelete) {
-        this.isDelete = isDelete;
+    public void setLoginTime(Date loginTime) {
+        this.loginTime = loginTime;
     }
 }

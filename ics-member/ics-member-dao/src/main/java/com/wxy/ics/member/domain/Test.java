@@ -3,6 +3,11 @@ package com.wxy.ics.member.domain;
 import java.util.Date;
 import javax.persistence.*;
 
+/**
+ *测试实体类
+ * @author wxy
+ * @date 2019/03/14
+ */
 @Table(name = "t_test")
 public class Test {
     @Id

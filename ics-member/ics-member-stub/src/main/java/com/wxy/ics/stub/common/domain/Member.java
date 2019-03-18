@@ -1,7 +1,11 @@
 package com.wxy.ics.stub.common.domain;
 
 import java.util.Date;
-
+/**
+ * Member实体
+ * @author wxy
+ * @date 2019/03/14
+ */
 public class Member {
     /**
      * 自增主键

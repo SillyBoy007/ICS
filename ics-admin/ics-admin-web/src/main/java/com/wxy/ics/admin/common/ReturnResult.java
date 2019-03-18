@@ -4,7 +4,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-
+/**
+ * ReturnResult
+ * @author wxy
+ * @date 2019/03/14
+ */
 @Data
 @NoArgsConstructor
 public class ReturnResult<T> implements Serializable{

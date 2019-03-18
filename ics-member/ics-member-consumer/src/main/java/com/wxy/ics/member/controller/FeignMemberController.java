@@ -8,6 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 会员Controller
+ *
+ * @author wxy
+ * @date 2019/03/14
+ */
 @RestController
 public class FeignMemberController {
     @Autowired

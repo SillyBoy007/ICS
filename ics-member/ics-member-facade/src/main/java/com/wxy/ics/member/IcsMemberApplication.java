@@ -12,13 +12,15 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-////@EnableFeignClients
-//    (basePackages = {
-//        "com.akucun.*"})
+/**
+ *启动类
+ * @author wxy
+ * @date 2019/03/14
+ */
 @SpringBootApplication(scanBasePackages = {"com.wxy.ics.*"})
 @MapperScan("com.wxy.ics.*.mapper")
 @EnableEurekaClient
-//@EnableFeignClients(basePackages = {"com.wxy.ics.*"})
+@EnableFeignClients(basePackages = {"com.wxy.ics.*"})
 public class IcsMemberApplication {
 
     private static Logger log = LoggerFactory.getLogger(IcsMemberApplication.class);

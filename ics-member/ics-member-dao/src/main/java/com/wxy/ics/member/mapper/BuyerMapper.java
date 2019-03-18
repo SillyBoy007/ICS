@@ -1,11 +1,11 @@
 package com.wxy.ics.member.mapper;
 
 import com.wxy.ics.member.config.MyMapper;
-import com.wxy.ics.member.domain.Member;
+import com.wxy.ics.member.domain.Buyer;
 /**
- * MemberMapper
+ * BuyerMapper
  * @author wxy
  * @date 2019/03/14
  */
-public interface MemberMapper extends MyMapper<Member> {
+public interface BuyerMapper extends MyMapper<Buyer> {
 }

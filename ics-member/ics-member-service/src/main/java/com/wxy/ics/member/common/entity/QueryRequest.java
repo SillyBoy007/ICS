@@ -3,7 +3,11 @@ package com.wxy.ics.member.common.entity;
 import com.google.common.base.MoreObjects;
 
 import java.io.Serializable;
-
+/**
+ * QueryRequest查询基础类
+ * @author wxy
+ * @date 2019/03/14
+ */
 public class QueryRequest implements Serializable {
 
     private static final long serialVersionUID = -4869594085374385813L;

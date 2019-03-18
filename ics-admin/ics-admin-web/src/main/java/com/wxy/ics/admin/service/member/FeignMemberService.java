@@ -13,8 +13,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * 这里继承了IService接口没有使用Htpp注解标注导致报错
  * Caused by: java.lang.IllegalStateException: Method delete not annotated with HTTP method type (ex. GET, POST)
  */
+/**
+ * @author wxy
+ * @date 2019/03/14
+ */
 @FeignClient(value = "ICS-MEMBER",fallback = MemberServiceHystrixImpl.class)
 public interface FeignMemberService {
+    /**
+     * getMemberById
+     * @param id
+     * @return
+     */
     @RequestMapping(value = "/api/member/get/{id}",method = RequestMethod.GET)
     ReturnResult<Member> getMemberById(@PathVariable("id") Long id);
 }

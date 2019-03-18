@@ -5,7 +5,16 @@
 
 package com.wxy.ics.common.enums;
 
+/**
+ * codemsg枚举类
+ *
+ * @author wxy
+ * @date 2019/03/14
+ */
 public enum CodeMsg {
+    /**
+     * 成功
+     */
     SUCCESS(0, "success"),
     SERVER_ERROR(500100, "服务端异常"),
     BIND_ERROR(500101, "参数校验异常：%s"),
