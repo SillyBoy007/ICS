@@ -1,0 +1,9 @@
+com\wxy\ics\member\po\AccountPO.class
+com\wxy\ics\member\mapper\AccountPOMapper.class
+com\wxy\ics\member\mapper\BuyerPOMapper.class
+com\wxy\ics\member\po\SellerPO.class
+com\wxy\ics\member\mapper\SellerPOMapper.class
+com\wxy\ics\member\po\MemberPO.class
+com\wxy\ics\member\po\BuyerPO.class
+com\wxy\ics\member\mapper\MemberPOMapper.class
+com\wxy\ics\member\config\MyMapper.class

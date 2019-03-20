@@ -2,7 +2,7 @@ package com.wxy.ics.member.controller;
 
 import com.wxy.ics.common.enums.CodeMsg;
 import com.wxy.ics.member.common.controller.BaseController;
-import com.wxy.ics.member.domain.Seller;
+import com.wxy.ics.member.po.SellerPO;
 import com.wxy.ics.member.service.SellerService;
 import entity.ReturnResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +19,8 @@ import java.util.List;
 public class SellerController extends BaseController{
     @Autowired
     SellerService sellerService;
-    public ReturnResult<List<Seller>>  selectSellerList(){
-        List<Seller> sellers = sellerService.selectAll();
+    public ReturnResult<List<SellerPO>>  selectSellerList(){
+        List<SellerPO> sellers = sellerService.selectAll();
         return ReturnResult.successMsg(CodeMsg.SUCCESS.getKey(),CodeMsg.SUCCESS.getMessage(),sellers);
     }
 }

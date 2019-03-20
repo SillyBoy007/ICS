@@ -1,8 +1,7 @@
 package com.wxy.ics.member.controller;
 
-import com.wxy.ics.common.enums.CodeMsg;
 import com.wxy.ics.member.common.controller.BaseController;
-import com.wxy.ics.member.domain.Member;
+import com.wxy.ics.member.po.MemberPO;
 import com.wxy.ics.member.service.MemberService;
 import entity.ReturnResult;
 import lombok.extern.slf4j.Slf4j;
@@ -22,8 +21,8 @@ public class MemberController extends BaseController {
     @Autowired
     MemberService memberService;
     @RequestMapping(value = "/get/{id}",method = RequestMethod.GET)
-    public ReturnResult<Member> getMemberById(@PathVariable("id") Long id){
-        ReturnResult<Member> returnResult;
+    public ReturnResult<MemberPO> getMemberById(@PathVariable("id") Long id){
+        ReturnResult<MemberPO> returnResult;
         try {
             returnResult = new ReturnResult<>();
             returnResult.setCode(SUCCESS.getKey());
