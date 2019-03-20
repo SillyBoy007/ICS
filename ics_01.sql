@@ -10,37 +10,82 @@ Target Server Type    : MYSQL
 Target Server Version : 50725
 File Encoding         : 65001
 
-Date: 2019-03-16 18:56:15
+Date: 2019-03-20 19:49:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for account
+-- ----------------------------
+DROP TABLE IF EXISTS `account`;
+CREATE TABLE `account` (
+  `id` bigint(20) NOT NULL COMMENT '主键',
+  `channel` varchar(50) DEFAULT '' COMMENT '渠道',
+  `user_code` char(64) DEFAULT '' COMMENT '用户编号',
+  `buyer_code` char(64) DEFAULT '' COMMENT '买家编号',
+  `seller_code` char(64) DEFAULT '' COMMENT '商家编号',
+  `account_type` tinyint(1) DEFAULT '0' COMMENT '账户类型',
+  `account_id` char(64) DEFAULT '' COMMENT '账户id',
+  `createtime` datetime(6) DEFAULT NULL COMMENT '创建时间',
+  `is_delete` tinyint(1) DEFAULT '0' COMMENT '是否删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of account
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for buyer
+-- ----------------------------
+DROP TABLE IF EXISTS `buyer`;
+CREATE TABLE `buyer` (
+  `id` bigint(20) NOT NULL COMMENT '主键',
+  `channel` varchar(50) DEFAULT '' COMMENT '渠道',
+  `user_code` char(64) DEFAULT '' COMMENT '用户编号',
+  `buyer_code` char(64) DEFAULT '' COMMENT '买家编号',
+  `nike_name` varchar(255) DEFAULT '' COMMENT '昵称',
+  `avator` varchar(255) DEFAULT '' COMMENT '头像',
+  `buyer_type` tinyint(1) DEFAULT '0' COMMENT '买家类型',
+  `register_time` datetime(6) DEFAULT NULL COMMENT '注册时间',
+  `member_status` tinyint(1) DEFAULT '0' COMMENT '会员状态',
+  `birthday` datetime(6) DEFAULT NULL COMMENT '生日',
+  `sex` tinyint(1) DEFAULT '0' COMMENT '性别',
+  `createtime` datetime(6) DEFAULT NULL COMMENT '创建时间',
+  `isdelete` tinyint(1) DEFAULT '0' COMMENT '是否删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of buyer
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for member
 -- ----------------------------
 DROP TABLE IF EXISTS `member`;
 CREATE TABLE `member` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '自增主键',
-  `user_id` bigint(20) NOT NULL COMMENT '用户id',
-  `open_id` varchar(60) NOT NULL COMMENT '用户的标识，对当前公众号唯一',
-  `union_id` bigint(20) DEFAULT NULL COMMENT '联合union_id',
-  `type` int(11) DEFAULT NULL COMMENT '1.h5商城 2.今日断码',
-  `third_party_id` varchar(60) DEFAULT NULL COMMENT '用户第三方标识',
-  `status` int(11) DEFAULT NULL COMMENT '1.有效 2冻结 ',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `create_by` varchar(64) NOT NULL COMMENT '创建人',
-  `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  `update_by` varchar(64) NOT NULL COMMENT '修改人',
-  `is_delete` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0:未删除，1已删除',
-  PRIMARY KEY (`id`),
-  KEY `ix_open_id` (`open_id`),
-  KEY `ix_user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='会员表';
+  `id` bigint(20) NOT NULL COMMENT '主键',
+  `channel` varchar(50) DEFAULT '' COMMENT '渠道',
+  `user_code` char(64) DEFAULT '' COMMENT '用户编号',
+  `mobile` varchar(255) DEFAULT '' COMMENT '手机号',
+  `open_id` varchar(255) DEFAULT '' COMMENT '微信open_id',
+  `union_id` varchar(255) DEFAULT NULL COMMENT '微信union_id',
+  `wx_avator` varchar(255) DEFAULT '' COMMENT '微信头像',
+  `wx_nike_name` varchar(255) DEFAULT '' COMMENT '微信昵称',
+  `user_status` tinyint(1) DEFAULT '0' COMMENT '用户状态',
+  `invite_user_id` char(64) DEFAULT '' COMMENT '邀请人',
+  `login_time` datetime(6) DEFAULT NULL COMMENT '最后登录时间',
+  `createtime` datetime(6) DEFAULT NULL COMMENT '创建时间',
+  `is_delete` tinyint(1) DEFAULT '0' COMMENT '是否删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of member
 -- ----------------------------
-INSERT INTO `member` VALUES ('1', '23213', '213213', '3213', '1', '3213', '1', '2019-03-14 20:52:38', '21321', '2019-03-14 20:52:38', '3213', '0');
+INSERT INTO `member` VALUES ('1', '', 'wq', '1111111', 'we', '11', 'aa', '1ewe', '0', '2321', '2019-03-18 22:31:16.000000', null, null);
 
 -- ----------------------------
 -- Table structure for qrtz_blob_triggers
@@ -257,6 +302,35 @@ CREATE TABLE `qrtz_triggers` (
 
 -- ----------------------------
 -- Records of qrtz_triggers
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for seller
+-- ----------------------------
+DROP TABLE IF EXISTS `seller`;
+CREATE TABLE `seller` (
+  `id` bigint(20) NOT NULL COMMENT '主键',
+  `channel` varchar(50) DEFAULT '' COMMENT '渠道',
+  `user_code` char(64) DEFAULT '' COMMENT '用户编号',
+  `seller_code` char(64) DEFAULT '' COMMENT '商家编号',
+  `seller_type` tinyint(1) DEFAULT '0' COMMENT '商家类型',
+  `nike_name` varchar(255) DEFAULT '' COMMENT '昵称',
+  `avator` varchar(255) DEFAULT '' COMMENT '头像',
+  `seller_level` tinyint(2) DEFAULT '0' COMMENT '商家等级',
+  `register_time` datetime(6) DEFAULT NULL COMMENT '注册时间',
+  `contact` varchar(50) DEFAULT '' COMMENT '联系人',
+  `mobile` varchar(255) DEFAULT '' COMMENT '手机号码',
+  `email` varchar(255) DEFAULT '' COMMENT '邮箱',
+  `audit_status` tinyint(1) DEFAULT '0' COMMENT '审核状态',
+  `real_status` tinyint(1) DEFAULT '0' COMMENT '实名认证状态',
+  `seller_status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '商家状态',
+  `createtime` datetime(6) DEFAULT NULL COMMENT '创建时间',
+  `is_delete` tinyint(1) DEFAULT '0' COMMENT '是否删除',
+  PRIMARY KEY (`id`,`seller_status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of seller
 -- ----------------------------
 
 -- ----------------------------
