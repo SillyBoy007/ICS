@@ -1,7 +1,6 @@
 package com.wxy.ics.member.service.impl;
 
 import com.wxy.ics.member.common.service.impl.BaseServiceImpl;
-import com.wxy.ics.member.domain.Seller;
 import com.wxy.ics.member.orm.model.BaseSeller;
 import com.wxy.ics.member.service.SellerService;
 import org.springframework.stereotype.Service;
