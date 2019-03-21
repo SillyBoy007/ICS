@@ -1,7 +1,7 @@
 package com.wxy.ics.member.controller;
 
 import com.wxy.ics.member.common.controller.BaseController;
-import com.wxy.ics.member.domain.Member;
+import com.wxy.ics.member.domain.MemberPO;
 import com.wxy.ics.member.orm.model.BaseMember;
 import com.wxy.ics.member.service.MemberService;
 import entity.ReturnResult;
@@ -42,8 +42,8 @@ public class MemberController extends BaseController {
 
     }
     @RequestMapping(value = "/get/member",method = RequestMethod.GET)
-    public ReturnResult<Member> getMemberByOpenId(){
-        ReturnResult<Member> returnResult;
+    public ReturnResult<MemberPO> getMemberByOpenId(){
+        ReturnResult<MemberPO> returnResult;
         try {
             returnResult = new ReturnResult<>();
             returnResult.setCode(SUCCESS.getKey());

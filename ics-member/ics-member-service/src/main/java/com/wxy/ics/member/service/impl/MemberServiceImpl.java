@@ -1,7 +1,7 @@
 package com.wxy.ics.member.service.impl;
 
 import com.wxy.ics.member.common.service.impl.BaseServiceImpl;
-import com.wxy.ics.member.domain.Member;
+import com.wxy.ics.member.domain.MemberPO;
 import com.wxy.ics.member.mapper.MemberMapper;
 import com.wxy.ics.member.orm.model.BaseMember;
 import com.wxy.ics.member.service.MemberService;
@@ -21,7 +21,7 @@ public class MemberServiceImpl extends BaseServiceImpl<BaseMember> implements Me
     MemberMapper memberMapper;
 
     @Override
-    public Member getMemberByOpenId(String openId) {
+    public MemberPO getMemberByOpenId(String openId) {
         return  memberMapper.getMemberByOpenId(openId);
     }
 }
