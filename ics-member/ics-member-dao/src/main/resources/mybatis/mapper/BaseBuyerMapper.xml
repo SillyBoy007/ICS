@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wxy.ics.member.orm.mapper.BaseBuyerMapper">
+  <resultMap id="BaseResultMap" type="com.wxy.ics.member.orm.model.BaseBuyer">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="channel" jdbcType="VARCHAR" property="channel" />
+    <result column="user_code" jdbcType="CHAR" property="userCode" />
+    <result column="buyer_code" jdbcType="CHAR" property="buyerCode" />
+    <result column="nike_name" jdbcType="VARCHAR" property="nikeName" />
+    <result column="avator" jdbcType="VARCHAR" property="avator" />
+    <result column="buyer_type" jdbcType="BIT" property="buyerType" />
+    <result column="register_time" jdbcType="TIMESTAMP" property="registerTime" />
+    <result column="member_status" jdbcType="BIT" property="memberStatus" />
+    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="sex" jdbcType="BIT" property="sex" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="isdelete" jdbcType="BIT" property="isdelete" />
+  </resultMap>
+</mapper>

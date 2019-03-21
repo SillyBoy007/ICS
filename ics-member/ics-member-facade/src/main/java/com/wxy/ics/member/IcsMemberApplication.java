@@ -18,7 +18,7 @@ import java.time.LocalTime;
  * @date 2019/03/14
  */
 @SpringBootApplication(scanBasePackages = {"com.wxy.ics.*"})
-@MapperScan("com.wxy.ics.*.mapper")
+@MapperScan(basePackages = {"com.wxy.ics.*.mapper","com.wxy.ics.*.orm"})
 @EnableEurekaClient
 @EnableFeignClients(basePackages = {"com.wxy.ics.*"})
 public class IcsMemberApplication {
