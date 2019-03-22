@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50725
 File Encoding         : 65001
 
-Date: 2019-03-20 19:49:16
+Date: 2019-03-21 14:51:24
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -23,12 +23,17 @@ CREATE TABLE `account` (
   `id` bigint(20) NOT NULL COMMENT '主键',
   `channel` varchar(50) DEFAULT '' COMMENT '渠道',
   `user_code` char(64) DEFAULT '' COMMENT '用户编号',
-  `buyer_code` char(64) DEFAULT '' COMMENT '买家编号',
-  `seller_code` char(64) DEFAULT '' COMMENT '商家编号',
-  `account_type` tinyint(1) DEFAULT '0' COMMENT '账户类型',
-  `account_id` char(64) DEFAULT '' COMMENT '账户id',
-  `createtime` datetime(6) DEFAULT NULL COMMENT '创建时间',
+  `open_id` varchar(255) DEFAULT '' COMMENT '微信openid',
+  `union_id` varchar(255) DEFAULT '' COMMENT '微信union_id',
+  `wx_avator` varchar(255) DEFAULT '' COMMENT '微信头像',
+  `wx_nike_name` varchar(255) DEFAULT '' COMMENT '微信昵称',
+  `account_status` tinyint(1) DEFAULT '0' COMMENT '账号状态',
   `is_delete` tinyint(1) DEFAULT '0' COMMENT '是否删除',
+  `mobile` varchar(255) DEFAULT '' COMMENT '手机号',
+  `create_time` datetime(6) DEFAULT NULL COMMENT '创建时间',
+  `create_by` varchar(255) DEFAULT '' COMMENT '创建人',
+  `update_by` varchar(255) DEFAULT '' COMMENT '更新人',
+  `update_time` datetime(6) DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -45,15 +50,14 @@ CREATE TABLE `buyer` (
   `channel` varchar(50) DEFAULT '' COMMENT '渠道',
   `user_code` char(64) DEFAULT '' COMMENT '用户编号',
   `buyer_code` char(64) DEFAULT '' COMMENT '买家编号',
-  `nike_name` varchar(255) DEFAULT '' COMMENT '昵称',
-  `avator` varchar(255) DEFAULT '' COMMENT '头像',
   `buyer_type` tinyint(1) DEFAULT '0' COMMENT '买家类型',
   `register_time` datetime(6) DEFAULT NULL COMMENT '注册时间',
   `member_status` tinyint(1) DEFAULT '0' COMMENT '会员状态',
-  `birthday` datetime(6) DEFAULT NULL COMMENT '生日',
-  `sex` tinyint(1) DEFAULT '0' COMMENT '性别',
   `createtime` datetime(6) DEFAULT NULL COMMENT '创建时间',
   `isdelete` tinyint(1) DEFAULT '0' COMMENT '是否删除',
+  `create_by` varchar(255) DEFAULT '' COMMENT '创建人',
+  `update_time` datetime(6) DEFAULT NULL COMMENT '更新时间',
+  `update_by` varchar(255) DEFAULT '' COMMENT '更新人人',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -69,23 +73,27 @@ CREATE TABLE `member` (
   `id` bigint(20) NOT NULL COMMENT '主键',
   `channel` varchar(50) DEFAULT '' COMMENT '渠道',
   `user_code` char(64) DEFAULT '' COMMENT '用户编号',
-  `mobile` varchar(255) DEFAULT '' COMMENT '手机号',
-  `open_id` varchar(255) DEFAULT '' COMMENT '微信open_id',
-  `union_id` varchar(255) DEFAULT NULL COMMENT '微信union_id',
-  `wx_avator` varchar(255) DEFAULT '' COMMENT '微信头像',
-  `wx_nike_name` varchar(255) DEFAULT '' COMMENT '微信昵称',
   `user_status` tinyint(1) DEFAULT '0' COMMENT '用户状态',
   `invite_user_id` char(64) DEFAULT '' COMMENT '邀请人',
   `login_time` datetime(6) DEFAULT NULL COMMENT '最后登录时间',
   `createtime` datetime(6) DEFAULT NULL COMMENT '创建时间',
   `is_delete` tinyint(1) DEFAULT '0' COMMENT '是否删除',
+  `nike_name` varchar(255) DEFAULT '' COMMENT '昵称',
+  `avator` varchar(255) DEFAULT '' COMMENT '头像',
+  `birthday` datetime(6) DEFAULT NULL COMMENT '生日',
+  `sex` tinyint(1) DEFAULT '0' COMMENT '性别',
+  `is_seller` tinyint(1) DEFAULT '0' COMMENT '是否商家',
+  `create_by` varchar(255) DEFAULT '' COMMENT '创建人',
+  `update_by` varchar(255) DEFAULT '' COMMENT '更新人',
+  `update_time` datetime(6) DEFAULT NULL COMMENT '更新时间',
+  `email` varchar(255) DEFAULT '' COMMENT '邮箱',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of member
 -- ----------------------------
-INSERT INTO `member` VALUES ('1', '', 'wq', '1111111', 'we', '11', 'aa', '1ewe', '0', '2321', '2019-03-18 22:31:16.000000', null, null);
+INSERT INTO `member` VALUES ('1', '', 'wq', '0', '2321', '2019-03-18 22:31:16.000000', null, null, null, null, null, null, '0', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for qrtz_blob_triggers
@@ -314,19 +322,18 @@ CREATE TABLE `seller` (
   `user_code` char(64) DEFAULT '' COMMENT '用户编号',
   `seller_code` char(64) DEFAULT '' COMMENT '商家编号',
   `seller_type` tinyint(1) DEFAULT '0' COMMENT '商家类型',
-  `nike_name` varchar(255) DEFAULT '' COMMENT '昵称',
-  `avator` varchar(255) DEFAULT '' COMMENT '头像',
   `seller_level` tinyint(2) DEFAULT '0' COMMENT '商家等级',
   `register_time` datetime(6) DEFAULT NULL COMMENT '注册时间',
   `contact` varchar(50) DEFAULT '' COMMENT '联系人',
-  `mobile` varchar(255) DEFAULT '' COMMENT '手机号码',
-  `email` varchar(255) DEFAULT '' COMMENT '邮箱',
   `audit_status` tinyint(1) DEFAULT '0' COMMENT '审核状态',
   `real_status` tinyint(1) DEFAULT '0' COMMENT '实名认证状态',
-  `seller_status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '商家状态',
+  `seller_status` tinyint(1) DEFAULT '0' COMMENT '商家状态',
   `createtime` datetime(6) DEFAULT NULL COMMENT '创建时间',
   `is_delete` tinyint(1) DEFAULT '0' COMMENT '是否删除',
-  PRIMARY KEY (`id`,`seller_status`)
+  `update_by` varchar(255) DEFAULT '' COMMENT '更新人',
+  `update_time` datetime(6) DEFAULT NULL COMMENT '更新时间',
+  `create_by` varchar(255) DEFAULT '' COMMENT '创建人',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------

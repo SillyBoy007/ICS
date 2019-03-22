@@ -6,21 +6,20 @@
       WARNING - @mbg.generated
     -->
     <id column="id" jdbcType="BIGINT" property="id" />
-    <id column="seller_status" jdbcType="BIT" property="sellerStatus" />
     <result column="channel" jdbcType="VARCHAR" property="channel" />
     <result column="user_code" jdbcType="CHAR" property="userCode" />
     <result column="seller_code" jdbcType="CHAR" property="sellerCode" />
     <result column="seller_type" jdbcType="BIT" property="sellerType" />
-    <result column="nike_name" jdbcType="VARCHAR" property="nikeName" />
-    <result column="avator" jdbcType="VARCHAR" property="avator" />
     <result column="seller_level" jdbcType="TINYINT" property="sellerLevel" />
     <result column="register_time" jdbcType="TIMESTAMP" property="registerTime" />
     <result column="contact" jdbcType="VARCHAR" property="contact" />
-    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="audit_status" jdbcType="BIT" property="auditStatus" />
     <result column="real_status" jdbcType="BIT" property="realStatus" />
+    <result column="seller_status" jdbcType="BIT" property="sellerStatus" />
     <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
     <result column="is_delete" jdbcType="BIT" property="isDelete" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
   </resultMap>
 </mapper>

@@ -9,14 +9,13 @@
     <result column="channel" jdbcType="VARCHAR" property="channel" />
     <result column="user_code" jdbcType="CHAR" property="userCode" />
     <result column="buyer_code" jdbcType="CHAR" property="buyerCode" />
-    <result column="nike_name" jdbcType="VARCHAR" property="nikeName" />
-    <result column="avator" jdbcType="VARCHAR" property="avator" />
     <result column="buyer_type" jdbcType="BIT" property="buyerType" />
     <result column="register_time" jdbcType="TIMESTAMP" property="registerTime" />
     <result column="member_status" jdbcType="BIT" property="memberStatus" />
-    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
-    <result column="sex" jdbcType="BIT" property="sex" />
     <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
     <result column="isdelete" jdbcType="BIT" property="isdelete" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
   </resultMap>
 </mapper>

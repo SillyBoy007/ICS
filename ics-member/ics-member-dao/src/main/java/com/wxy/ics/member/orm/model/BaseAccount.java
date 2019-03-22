@@ -24,39 +24,69 @@ public class BaseAccount {
     private String userCode;
 
     /**
-     * 买家编号
+     * 微信openid
      */
-    @Column(name = "buyer_code")
-    private String buyerCode;
+    @Column(name = "open_id")
+    private String openId;
 
     /**
-     * 商家编号
+     * 微信union_id
      */
-    @Column(name = "seller_code")
-    private String sellerCode;
+    @Column(name = "union_id")
+    private String unionId;
 
     /**
-     * 账户类型
+     * 微信头像
      */
-    @Column(name = "account_type")
-    private Boolean accountType;
+    @Column(name = "wx_avator")
+    private String wxAvator;
 
     /**
-     * 账户id
+     * 微信昵称
      */
-    @Column(name = "account_id")
-    private String accountId;
+    @Column(name = "wx_nike_name")
+    private String wxNikeName;
 
     /**
-     * 创建时间
+     * 账号状态
      */
-    private Date createtime;
+    @Column(name = "account_status")
+    private Boolean accountStatus;
 
     /**
      * 是否删除
      */
     @Column(name = "is_delete")
     private Boolean isDelete;
+
+    /**
+     * 手机号
+     */
+    private String mobile;
+
+    /**
+     * 创建时间
+     */
+    @Column(name = "create_time")
+    private Date createTime;
+
+    /**
+     * 创建人
+     */
+    @Column(name = "create_by")
+    private String createBy;
+
+    /**
+     * 更新人
+     */
+    @Column(name = "update_by")
+    private String updateBy;
+
+    /**
+     * 更新时间
+     */
+    @Column(name = "update_time")
+    private Date updateTime;
 
     /**
      * 获取主键
@@ -113,93 +143,93 @@ public class BaseAccount {
     }
 
     /**
-     * 获取买家编号
+     * 获取微信openid
      *
-     * @return buyer_code - 买家编号
+     * @return open_id - 微信openid
      */
-    public String getBuyerCode() {
-        return buyerCode;
+    public String getOpenId() {
+        return openId;
     }
 
     /**
-     * 设置买家编号
+     * 设置微信openid
      *
-     * @param buyerCode 买家编号
+     * @param openId 微信openid
      */
-    public void setBuyerCode(String buyerCode) {
-        this.buyerCode = buyerCode == null ? null : buyerCode.trim();
+    public void setOpenId(String openId) {
+        this.openId = openId == null ? null : openId.trim();
     }
 
     /**
-     * 获取商家编号
+     * 获取微信union_id
      *
-     * @return seller_code - 商家编号
+     * @return union_id - 微信union_id
      */
-    public String getSellerCode() {
-        return sellerCode;
+    public String getUnionId() {
+        return unionId;
     }
 
     /**
-     * 设置商家编号
+     * 设置微信union_id
      *
-     * @param sellerCode 商家编号
+     * @param unionId 微信union_id
      */
-    public void setSellerCode(String sellerCode) {
-        this.sellerCode = sellerCode == null ? null : sellerCode.trim();
+    public void setUnionId(String unionId) {
+        this.unionId = unionId == null ? null : unionId.trim();
     }
 
     /**
-     * 获取账户类型
+     * 获取微信头像
      *
-     * @return account_type - 账户类型
+     * @return wx_avator - 微信头像
      */
-    public Boolean getAccountType() {
-        return accountType;
+    public String getWxAvator() {
+        return wxAvator;
     }
 
     /**
-     * 设置账户类型
+     * 设置微信头像
      *
-     * @param accountType 账户类型
+     * @param wxAvator 微信头像
      */
-    public void setAccountType(Boolean accountType) {
-        this.accountType = accountType;
+    public void setWxAvator(String wxAvator) {
+        this.wxAvator = wxAvator == null ? null : wxAvator.trim();
     }
 
     /**
-     * 获取账户id
+     * 获取微信昵称
      *
-     * @return account_id - 账户id
+     * @return wx_nike_name - 微信昵称
      */
-    public String getAccountId() {
-        return accountId;
+    public String getWxNikeName() {
+        return wxNikeName;
     }
 
     /**
-     * 设置账户id
+     * 设置微信昵称
      *
-     * @param accountId 账户id
+     * @param wxNikeName 微信昵称
      */
-    public void setAccountId(String accountId) {
-        this.accountId = accountId == null ? null : accountId.trim();
+    public void setWxNikeName(String wxNikeName) {
+        this.wxNikeName = wxNikeName == null ? null : wxNikeName.trim();
     }
 
     /**
-     * 获取创建时间
+     * 获取账号状态
      *
-     * @return createtime - 创建时间
+     * @return account_status - 账号状态
      */
-    public Date getCreatetime() {
-        return createtime;
+    public Boolean getAccountStatus() {
+        return accountStatus;
     }
 
     /**
-     * 设置创建时间
+     * 设置账号状态
      *
-     * @param createtime 创建时间
+     * @param accountStatus 账号状态
      */
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setAccountStatus(Boolean accountStatus) {
+        this.accountStatus = accountStatus;
     }
 
     /**
@@ -218,5 +248,95 @@ public class BaseAccount {
      */
     public void setIsDelete(Boolean isDelete) {
         this.isDelete = isDelete;
+    }
+
+    /**
+     * 获取手机号
+     *
+     * @return mobile - 手机号
+     */
+    public String getMobile() {
+        return mobile;
+    }
+
+    /**
+     * 设置手机号
+     *
+     * @param mobile 手机号
+     */
+    public void setMobile(String mobile) {
+        this.mobile = mobile == null ? null : mobile.trim();
+    }
+
+    /**
+     * 获取创建时间
+     *
+     * @return create_time - 创建时间
+     */
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    /**
+     * 设置创建时间
+     *
+     * @param createTime 创建时间
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    /**
+     * 获取创建人
+     *
+     * @return create_by - 创建人
+     */
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    /**
+     * 设置创建人
+     *
+     * @param createBy 创建人
+     */
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy == null ? null : createBy.trim();
+    }
+
+    /**
+     * 获取更新人
+     *
+     * @return update_by - 更新人
+     */
+    public String getUpdateBy() {
+        return updateBy;
+    }
+
+    /**
+     * 设置更新人
+     *
+     * @param updateBy 更新人
+     */
+    public void setUpdateBy(String updateBy) {
+        this.updateBy = updateBy == null ? null : updateBy.trim();
+    }
+
+    /**
+     * 获取更新时间
+     *
+     * @return update_time - 更新时间
+     */
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    /**
+     * 设置更新时间
+     *
+     * @param updateTime 更新时间
+     */
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }

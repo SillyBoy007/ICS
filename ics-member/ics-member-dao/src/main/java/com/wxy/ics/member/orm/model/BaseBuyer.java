@@ -30,17 +30,6 @@ public class BaseBuyer {
     private String buyerCode;
 
     /**
-     * 昵称
-     */
-    @Column(name = "nike_name")
-    private String nikeName;
-
-    /**
-     * 头像
-     */
-    private String avator;
-
-    /**
      * 买家类型
      */
     @Column(name = "buyer_type")
@@ -59,16 +48,6 @@ public class BaseBuyer {
     private Boolean memberStatus;
 
     /**
-     * 生日
-     */
-    private Date birthday;
-
-    /**
-     * 性别
-     */
-    private Boolean sex;
-
-    /**
      * 创建时间
      */
     private Date createtime;
@@ -77,6 +56,24 @@ public class BaseBuyer {
      * 是否删除
      */
     private Boolean isdelete;
+
+    /**
+     * 创建人
+     */
+    @Column(name = "create_by")
+    private String createBy;
+
+    /**
+     * 更新时间
+     */
+    @Column(name = "update_time")
+    private Date updateTime;
+
+    /**
+     * 更新人人
+     */
+    @Column(name = "update_by")
+    private String updateBy;
 
     /**
      * 获取主键
@@ -151,42 +148,6 @@ public class BaseBuyer {
     }
 
     /**
-     * 获取昵称
-     *
-     * @return nike_name - 昵称
-     */
-    public String getNikeName() {
-        return nikeName;
-    }
-
-    /**
-     * 设置昵称
-     *
-     * @param nikeName 昵称
-     */
-    public void setNikeName(String nikeName) {
-        this.nikeName = nikeName == null ? null : nikeName.trim();
-    }
-
-    /**
-     * 获取头像
-     *
-     * @return avator - 头像
-     */
-    public String getAvator() {
-        return avator;
-    }
-
-    /**
-     * 设置头像
-     *
-     * @param avator 头像
-     */
-    public void setAvator(String avator) {
-        this.avator = avator == null ? null : avator.trim();
-    }
-
-    /**
      * 获取买家类型
      *
      * @return buyer_type - 买家类型
@@ -241,42 +202,6 @@ public class BaseBuyer {
     }
 
     /**
-     * 获取生日
-     *
-     * @return birthday - 生日
-     */
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    /**
-     * 设置生日
-     *
-     * @param birthday 生日
-     */
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
-    /**
-     * 获取性别
-     *
-     * @return sex - 性别
-     */
-    public Boolean getSex() {
-        return sex;
-    }
-
-    /**
-     * 设置性别
-     *
-     * @param sex 性别
-     */
-    public void setSex(Boolean sex) {
-        this.sex = sex;
-    }
-
-    /**
      * 获取创建时间
      *
      * @return createtime - 创建时间
@@ -310,5 +235,59 @@ public class BaseBuyer {
      */
     public void setIsdelete(Boolean isdelete) {
         this.isdelete = isdelete;
+    }
+
+    /**
+     * 获取创建人
+     *
+     * @return create_by - 创建人
+     */
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    /**
+     * 设置创建人
+     *
+     * @param createBy 创建人
+     */
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy == null ? null : createBy.trim();
+    }
+
+    /**
+     * 获取更新时间
+     *
+     * @return update_time - 更新时间
+     */
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    /**
+     * 设置更新时间
+     *
+     * @param updateTime 更新时间
+     */
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    /**
+     * 获取更新人人
+     *
+     * @return update_by - 更新人人
+     */
+    public String getUpdateBy() {
+        return updateBy;
+    }
+
+    /**
+     * 设置更新人人
+     *
+     * @param updateBy 更新人人
+     */
+    public void setUpdateBy(String updateBy) {
+        this.updateBy = updateBy == null ? null : updateBy.trim();
     }
 }

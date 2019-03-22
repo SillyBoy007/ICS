@@ -51,7 +51,19 @@ public enum CodeMsg {
     ACTIVITY_DATEFORMAT_ERROR(500602, "获取用户创建日期错误！"),
     ACTIVITY_NOT_EXISTS(500603, "活动不存在！"),
     SEARCH_PRODUCT_ERROR_BY_ACTIVITY_ID(500604, "活动ID查商品信息出错！"),
-    UPDATE_PRODUCT_ONEVERY_DAY_STATEMENT(500605, "活动ID查商品信息出错！");
+    UPDATE_PRODUCT_ONEVERY_DAY_STATEMENT(500605, "活动ID查商品信息出错！"),
+    /**
+     * 微信登陆
+     */
+    ACCESSTOKEN_GET_FAIL(600100,"第三方登录失败,accessToken为空"),
+    WECHAT_LOGIN_ERROR(600101,"微信登陆异常"),
+
+    /**
+     * Http请求
+     */
+    HTTP_REQUEST_FAIL(700100, "HTTP请求失败");
+
+
 
     private int key;
     private String message;

@@ -8,11 +8,16 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="channel" jdbcType="VARCHAR" property="channel" />
     <result column="user_code" jdbcType="CHAR" property="userCode" />
-    <result column="buyer_code" jdbcType="CHAR" property="buyerCode" />
-    <result column="seller_code" jdbcType="CHAR" property="sellerCode" />
-    <result column="account_type" jdbcType="BIT" property="accountType" />
-    <result column="account_id" jdbcType="CHAR" property="accountId" />
-    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="union_id" jdbcType="VARCHAR" property="unionId" />
+    <result column="wx_avator" jdbcType="VARCHAR" property="wxAvator" />
+    <result column="wx_nike_name" jdbcType="VARCHAR" property="wxNikeName" />
+    <result column="account_status" jdbcType="BIT" property="accountStatus" />
     <result column="is_delete" jdbcType="BIT" property="isDelete" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
 </mapper>

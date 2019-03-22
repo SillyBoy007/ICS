@@ -8,15 +8,19 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="channel" jdbcType="VARCHAR" property="channel" />
     <result column="user_code" jdbcType="CHAR" property="userCode" />
-    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
-    <result column="open_id" jdbcType="VARCHAR" property="openId" />
-    <result column="union_id" jdbcType="VARCHAR" property="unionId" />
-    <result column="wx_avator" jdbcType="VARCHAR" property="wxAvator" />
-    <result column="wx_nike_name" jdbcType="VARCHAR" property="wxNikeName" />
     <result column="user_status" jdbcType="BIT" property="userStatus" />
     <result column="invite_user_id" jdbcType="CHAR" property="inviteUserId" />
     <result column="login_time" jdbcType="TIMESTAMP" property="loginTime" />
     <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
     <result column="is_delete" jdbcType="BIT" property="isDelete" />
+    <result column="nike_name" jdbcType="VARCHAR" property="nikeName" />
+    <result column="avator" jdbcType="VARCHAR" property="avator" />
+    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="sex" jdbcType="BIT" property="sex" />
+    <result column="is_seller" jdbcType="BIT" property="isSeller" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
   </resultMap>
 </mapper>

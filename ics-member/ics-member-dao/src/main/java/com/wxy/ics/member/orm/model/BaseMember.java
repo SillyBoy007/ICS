@@ -24,35 +24,6 @@ public class BaseMember {
     private String userCode;
 
     /**
-     * 手机号
-     */
-    private String mobile;
-
-    /**
-     * 微信open_id
-     */
-    @Column(name = "open_id")
-    private String openId;
-
-    /**
-     * 微信union_id
-     */
-    @Column(name = "union_id")
-    private String unionId;
-
-    /**
-     * 微信头像
-     */
-    @Column(name = "wx_avator")
-    private String wxAvator;
-
-    /**
-     * 微信昵称
-     */
-    @Column(name = "wx_nike_name")
-    private String wxNikeName;
-
-    /**
      * 用户状态
      */
     @Column(name = "user_status")
@@ -80,6 +51,56 @@ public class BaseMember {
      */
     @Column(name = "is_delete")
     private Boolean isDelete;
+
+    /**
+     * 昵称
+     */
+    @Column(name = "nike_name")
+    private String nikeName;
+
+    /**
+     * 头像
+     */
+    private String avator;
+
+    /**
+     * 生日
+     */
+    private Date birthday;
+
+    /**
+     * 性别
+     */
+    private Boolean sex;
+
+    /**
+     * 是否商家
+     */
+    @Column(name = "is_seller")
+    private Boolean isSeller;
+
+    /**
+     * 创建人
+     */
+    @Column(name = "create_by")
+    private String createBy;
+
+    /**
+     * 更新人
+     */
+    @Column(name = "update_by")
+    private String updateBy;
+
+    /**
+     * 更新时间
+     */
+    @Column(name = "update_time")
+    private Date updateTime;
+
+    /**
+     * 邮箱
+     */
+    private String email;
 
     /**
      * 获取主键
@@ -133,96 +154,6 @@ public class BaseMember {
      */
     public void setUserCode(String userCode) {
         this.userCode = userCode == null ? null : userCode.trim();
-    }
-
-    /**
-     * 获取手机号
-     *
-     * @return mobile - 手机号
-     */
-    public String getMobile() {
-        return mobile;
-    }
-
-    /**
-     * 设置手机号
-     *
-     * @param mobile 手机号
-     */
-    public void setMobile(String mobile) {
-        this.mobile = mobile == null ? null : mobile.trim();
-    }
-
-    /**
-     * 获取微信open_id
-     *
-     * @return open_id - 微信open_id
-     */
-    public String getOpenId() {
-        return openId;
-    }
-
-    /**
-     * 设置微信open_id
-     *
-     * @param openId 微信open_id
-     */
-    public void setOpenId(String openId) {
-        this.openId = openId == null ? null : openId.trim();
-    }
-
-    /**
-     * 获取微信union_id
-     *
-     * @return union_id - 微信union_id
-     */
-    public String getUnionId() {
-        return unionId;
-    }
-
-    /**
-     * 设置微信union_id
-     *
-     * @param unionId 微信union_id
-     */
-    public void setUnionId(String unionId) {
-        this.unionId = unionId == null ? null : unionId.trim();
-    }
-
-    /**
-     * 获取微信头像
-     *
-     * @return wx_avator - 微信头像
-     */
-    public String getWxAvator() {
-        return wxAvator;
-    }
-
-    /**
-     * 设置微信头像
-     *
-     * @param wxAvator 微信头像
-     */
-    public void setWxAvator(String wxAvator) {
-        this.wxAvator = wxAvator == null ? null : wxAvator.trim();
-    }
-
-    /**
-     * 获取微信昵称
-     *
-     * @return wx_nike_name - 微信昵称
-     */
-    public String getWxNikeName() {
-        return wxNikeName;
-    }
-
-    /**
-     * 设置微信昵称
-     *
-     * @param wxNikeName 微信昵称
-     */
-    public void setWxNikeName(String wxNikeName) {
-        this.wxNikeName = wxNikeName == null ? null : wxNikeName.trim();
     }
 
     /**
@@ -313,5 +244,167 @@ public class BaseMember {
      */
     public void setIsDelete(Boolean isDelete) {
         this.isDelete = isDelete;
+    }
+
+    /**
+     * 获取昵称
+     *
+     * @return nike_name - 昵称
+     */
+    public String getNikeName() {
+        return nikeName;
+    }
+
+    /**
+     * 设置昵称
+     *
+     * @param nikeName 昵称
+     */
+    public void setNikeName(String nikeName) {
+        this.nikeName = nikeName == null ? null : nikeName.trim();
+    }
+
+    /**
+     * 获取头像
+     *
+     * @return avator - 头像
+     */
+    public String getAvator() {
+        return avator;
+    }
+
+    /**
+     * 设置头像
+     *
+     * @param avator 头像
+     */
+    public void setAvator(String avator) {
+        this.avator = avator == null ? null : avator.trim();
+    }
+
+    /**
+     * 获取生日
+     *
+     * @return birthday - 生日
+     */
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    /**
+     * 设置生日
+     *
+     * @param birthday 生日
+     */
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    /**
+     * 获取性别
+     *
+     * @return sex - 性别
+     */
+    public Boolean getSex() {
+        return sex;
+    }
+
+    /**
+     * 设置性别
+     *
+     * @param sex 性别
+     */
+    public void setSex(Boolean sex) {
+        this.sex = sex;
+    }
+
+    /**
+     * 获取是否商家
+     *
+     * @return is_seller - 是否商家
+     */
+    public Boolean getIsSeller() {
+        return isSeller;
+    }
+
+    /**
+     * 设置是否商家
+     *
+     * @param isSeller 是否商家
+     */
+    public void setIsSeller(Boolean isSeller) {
+        this.isSeller = isSeller;
+    }
+
+    /**
+     * 获取创建人
+     *
+     * @return create_by - 创建人
+     */
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    /**
+     * 设置创建人
+     *
+     * @param createBy 创建人
+     */
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy == null ? null : createBy.trim();
+    }
+
+    /**
+     * 获取更新人
+     *
+     * @return update_by - 更新人
+     */
+    public String getUpdateBy() {
+        return updateBy;
+    }
+
+    /**
+     * 设置更新人
+     *
+     * @param updateBy 更新人
+     */
+    public void setUpdateBy(String updateBy) {
+        this.updateBy = updateBy == null ? null : updateBy.trim();
+    }
+
+    /**
+     * 获取更新时间
+     *
+     * @return update_time - 更新时间
+     */
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    /**
+     * 设置更新时间
+     *
+     * @param updateTime 更新时间
+     */
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    /**
+     * 获取邮箱
+     *
+     * @return email - 邮箱
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * 设置邮箱
+     *
+     * @param email 邮箱
+     */
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
     }
 }

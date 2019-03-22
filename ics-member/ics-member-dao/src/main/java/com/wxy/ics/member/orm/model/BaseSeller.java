@@ -13,13 +13,6 @@ public class BaseSeller {
     private Long id;
 
     /**
-     * 商家状态
-     */
-    @Id
-    @Column(name = "seller_status")
-    private Boolean sellerStatus;
-
-    /**
      * 渠道
      */
     private String channel;
@@ -43,17 +36,6 @@ public class BaseSeller {
     private Boolean sellerType;
 
     /**
-     * 昵称
-     */
-    @Column(name = "nike_name")
-    private String nikeName;
-
-    /**
-     * 头像
-     */
-    private String avator;
-
-    /**
      * 商家等级
      */
     @Column(name = "seller_level")
@@ -71,16 +53,6 @@ public class BaseSeller {
     private String contact;
 
     /**
-     * 手机号码
-     */
-    private String mobile;
-
-    /**
-     * 邮箱
-     */
-    private String email;
-
-    /**
      * 审核状态
      */
     @Column(name = "audit_status")
@@ -93,6 +65,12 @@ public class BaseSeller {
     private Boolean realStatus;
 
     /**
+     * 商家状态
+     */
+    @Column(name = "seller_status")
+    private Boolean sellerStatus;
+
+    /**
      * 创建时间
      */
     private Date createtime;
@@ -102,6 +80,24 @@ public class BaseSeller {
      */
     @Column(name = "is_delete")
     private Boolean isDelete;
+
+    /**
+     * 更新人
+     */
+    @Column(name = "update_by")
+    private String updateBy;
+
+    /**
+     * 更新时间
+     */
+    @Column(name = "update_time")
+    private Date updateTime;
+
+    /**
+     * 创建人
+     */
+    @Column(name = "create_by")
+    private String createBy;
 
     /**
      * 获取主键
@@ -119,24 +115,6 @@ public class BaseSeller {
      */
     public void setId(Long id) {
         this.id = id;
-    }
-
-    /**
-     * 获取商家状态
-     *
-     * @return seller_status - 商家状态
-     */
-    public Boolean getSellerStatus() {
-        return sellerStatus;
-    }
-
-    /**
-     * 设置商家状态
-     *
-     * @param sellerStatus 商家状态
-     */
-    public void setSellerStatus(Boolean sellerStatus) {
-        this.sellerStatus = sellerStatus;
     }
 
     /**
@@ -212,42 +190,6 @@ public class BaseSeller {
     }
 
     /**
-     * 获取昵称
-     *
-     * @return nike_name - 昵称
-     */
-    public String getNikeName() {
-        return nikeName;
-    }
-
-    /**
-     * 设置昵称
-     *
-     * @param nikeName 昵称
-     */
-    public void setNikeName(String nikeName) {
-        this.nikeName = nikeName == null ? null : nikeName.trim();
-    }
-
-    /**
-     * 获取头像
-     *
-     * @return avator - 头像
-     */
-    public String getAvator() {
-        return avator;
-    }
-
-    /**
-     * 设置头像
-     *
-     * @param avator 头像
-     */
-    public void setAvator(String avator) {
-        this.avator = avator == null ? null : avator.trim();
-    }
-
-    /**
      * 获取商家等级
      *
      * @return seller_level - 商家等级
@@ -302,42 +244,6 @@ public class BaseSeller {
     }
 
     /**
-     * 获取手机号码
-     *
-     * @return mobile - 手机号码
-     */
-    public String getMobile() {
-        return mobile;
-    }
-
-    /**
-     * 设置手机号码
-     *
-     * @param mobile 手机号码
-     */
-    public void setMobile(String mobile) {
-        this.mobile = mobile == null ? null : mobile.trim();
-    }
-
-    /**
-     * 获取邮箱
-     *
-     * @return email - 邮箱
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * 设置邮箱
-     *
-     * @param email 邮箱
-     */
-    public void setEmail(String email) {
-        this.email = email == null ? null : email.trim();
-    }
-
-    /**
      * 获取审核状态
      *
      * @return audit_status - 审核状态
@@ -374,6 +280,24 @@ public class BaseSeller {
     }
 
     /**
+     * 获取商家状态
+     *
+     * @return seller_status - 商家状态
+     */
+    public Boolean getSellerStatus() {
+        return sellerStatus;
+    }
+
+    /**
+     * 设置商家状态
+     *
+     * @param sellerStatus 商家状态
+     */
+    public void setSellerStatus(Boolean sellerStatus) {
+        this.sellerStatus = sellerStatus;
+    }
+
+    /**
      * 获取创建时间
      *
      * @return createtime - 创建时间
@@ -407,5 +331,59 @@ public class BaseSeller {
      */
     public void setIsDelete(Boolean isDelete) {
         this.isDelete = isDelete;
+    }
+
+    /**
+     * 获取更新人
+     *
+     * @return update_by - 更新人
+     */
+    public String getUpdateBy() {
+        return updateBy;
+    }
+
+    /**
+     * 设置更新人
+     *
+     * @param updateBy 更新人
+     */
+    public void setUpdateBy(String updateBy) {
+        this.updateBy = updateBy == null ? null : updateBy.trim();
+    }
+
+    /**
+     * 获取更新时间
+     *
+     * @return update_time - 更新时间
+     */
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    /**
+     * 设置更新时间
+     *
+     * @param updateTime 更新时间
+     */
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    /**
+     * 获取创建人
+     *
+     * @return create_by - 创建人
+     */
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    /**
+     * 设置创建人
+     *
+     * @param createBy 创建人
+     */
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy == null ? null : createBy.trim();
     }
 }
