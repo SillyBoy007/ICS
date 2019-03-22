@@ -1,7 +1,6 @@
 package com.wxy.ics.common.utils;
 
 import com.alibaba.fastjson.JSONObject;
-import com.wxy.ics.common.enums.CodeMsg;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -145,7 +144,7 @@ public class SelfHttpClientUtils {
     public static String httpGet(String url){
         url = url.trim();
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        String ret = "";
+        String ret = null;
         // 创建参数队列
         try {
             //参数转换为字符串

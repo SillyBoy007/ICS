@@ -8,9 +8,6 @@ import com.wxy.ics.member.config.LoginProperties;
 import com.wxy.ics.member.domain.MemberPO;
 import com.wxy.ics.member.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -62,6 +59,9 @@ public class LoginController {
             //没有微信登陆过，发送请求获取微信信息，再添加入库
             if (meberPO == null) {
                 UserInfoVO wechatUserInfo = this.getWechatUserInfo(openIdStr, accessTokenStr);
+                if (wechatUserInfo == null){
+
+                }
                 //将上方的该用户插入到你的数据库且返回到前端
                 return result;
             }else {//user!=null用微信登陆过，直接将user放入返回即可
@@ -92,7 +92,7 @@ public class LoginController {
                 log.warn("response为null");
                 return null;
             }
-            JSONObject parseObject = (JSONObject) JSONObject.parse(responseStr);
+            JSONObject parseObject = JSONObject.parseObject(responseStr, JSONObject.class);
             String accessToken = (String)parseObject.get("access_token");
             //有token说明请求正确，返回Map信息
             if (accessToken != null){
@@ -112,16 +112,13 @@ public class LoginController {
                 .append("&access_token=")
                 .append(accessToken)
                 .toString();
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder().url(url).build();
         try {
-            Response response = client.newCall(request).execute();
-            if (response==null){
+            String responseStr = SelfHttpClientUtils.httpGet(url);
+            if (responseStr==null){
                 log.warn("response为null");
                 return null;
             }
-            String resultJson = String.valueOf(response.body());
-            JSONObject parseObject = JSONObject.parseObject(resultJson, JSONObject.class);
+            JSONObject parseObject = JSONObject.parseObject(responseStr, JSONObject.class);
             String id = (String)parseObject.get("openid");
             //成功获取用户信息
             if (id != null){
