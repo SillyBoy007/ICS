@@ -12,16 +12,15 @@
         <module>ics-member-service</module>
         <module>ics-member-dao</module>
         <module>ics-member-facade</module>
-        <module>ics-member-stub</module>
         <module>ics-member-common</module>
-        <module>ics-member-consumer</module>
+        <module>ics-member-model</module>
     </modules>
 
     <!-- 声明使用了哪些依赖，便于后续拆分，注意：需要与大pom一致 -->
     <properties>
         <!-- 框架相关 -->
         <springboot.version>1.5.10.RELEASE</springboot.version>
-        <spring-cloud.version>1.3.1.RELEASE</spring-cloud.version>
+        <spring-cloud.version>1.4.4.RELEASE</spring-cloud.version>
         <mybatis.spring.boot.starter.version>1.3.2</mybatis.spring.boot.starter.version>
         <springboot-starter.version>1.5.10.RELEASE</springboot-starter.version>
         <spring-retry.version>1.2.2.RELEASE</spring-retry.version>
@@ -30,6 +29,7 @@
         <spring-cloud-starter-feign.version>1.3.1.RELEASE</spring-cloud-starter-feign.version>
         <spring-cloud-netflix-core.version>1.3.1.RELEASE</spring-cloud-netflix-core.version>
         <spring-web.version>4.3.14.RELEASE</spring-web.version>
+        <spring-boot-starter-thymeleaf.version>2.0.4.RELEASE</spring-boot-starter-thymeleaf.version>
 
         <!-- 二方库 -->
         <com.akucun.cloud.base.version>1.0.11</com.akucun.cloud.base.version>
@@ -44,6 +44,9 @@
         <commons-io.version>2.6</commons-io.version>
         <commons-fileupload.version>1.3.3</commons-fileupload.version>
         <commons-logging.version>1.2</commons-logging.version>
+        <poi.version>3.13</poi.version>
+        <persistence-api.version>1.0</persistence-api.version>
+
 
 
         <!-- DB相关 -->
@@ -57,6 +60,7 @@
         <pagehelper-spring-boot-starter.version>1.2.5</pagehelper-spring-boot-starter.version>
         <httpcore.version>4.4.6</httpcore.version>
         <httpclient.version>4.5.3</httpclient.version>
+        <ip2region.version>1.7</ip2region.version>
 
 
         <!-- 工程属性 -->
@@ -89,6 +93,12 @@
                 <artifactId>spring-boot-starter-jdbc</artifactId>
                 <version>${springboot.version}</version>
             </dependency>
+            <!-- aop依赖 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${springboot-starter.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -115,16 +125,33 @@
                 <version>${spring-cloud-netflix-core.version}</version>
                 <scope>compile</scope>
             </dependency>
+
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-web</artifactId>
                 <version>${spring-web.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-thymeleaf</artifactId>
+                <version>${spring-boot-starter-thymeleaf.version}</version>
+            </dependency>
+
             <!-- 通用 mapper -->
             <dependency>
                 <groupId>tk.mybatis</groupId>
                 <artifactId>mapper-spring-boot-starter</artifactId>
                 <version>${tk.mybatis.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.mybatis.spring.boot</groupId>
+                        <artifactId>mybatis-spring-boot-starter</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <!-- 二方库 -->
@@ -135,6 +162,27 @@
             </dependency>-->
 
             <!-- 三方库 -->
+            <!-- poi -->
+            <dependency>
+                <groupId>javax.persistence</groupId>
+                <artifactId>persistence-api</artifactId>
+                <version>${persistence-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-scratchpad</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
@@ -202,6 +250,11 @@
                 </exclusions>
             </dependency>
             <dependency>
+                <groupId>org.lionsoul</groupId>
+                <artifactId>ip2region</artifactId>
+                <version>${ip2region.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${springfox-swagger-ui.version}</version>
@@ -255,7 +308,7 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
-        <plugins>
+       <!-- <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
@@ -265,6 +318,16 @@
                     </delimiters>
                 </configuration>
             </plugin>
-        </plugins>
+        </plugins>-->
     </build>
+    <distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://localhost:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>http://localhost:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>

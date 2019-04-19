@@ -6,5 +6,5 @@ import com.wxy.ics.member.orm.model.BaseMember;
 /**
  * @author admin
  */
-public class MemberPO extends BaseMember{
+public class MemberPO extends BaseMember {
 }

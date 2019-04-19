@@ -1,0 +1,11 @@
+/develop/project/ICS/ics-member/ics-member-service/src/main/java/com/wxy/ics/member/common/service/BaseService.java
+/develop/project/ICS/ics-member/ics-member-service/src/main/java/com/wxy/ics/member/common/controller/BaseController.java
+/develop/project/ICS/ics-member/ics-member-service/src/main/java/com/wxy/ics/member/common/service/impl/BaseServiceImpl.java
+/develop/project/ICS/ics-member/ics-member-service/src/main/java/com/wxy/ics/member/service/impl/MemberServiceImpl.java
+/develop/project/ICS/ics-member/ics-member-service/src/main/java/com/wxy/ics/member/service/impl/SellerServiceImpl.java
+/develop/project/ICS/ics-member/ics-member-service/src/main/java/com/wxy/ics/member/service/MemberService.java
+/develop/project/ICS/ics-member/ics-member-service/src/main/java/com/wxy/ics/member/common/entity/QueryRequest.java
+/develop/project/ICS/ics-member/ics-member-service/src/main/java/com/wxy/ics/member/service/SellerService.java
+/develop/project/ICS/ics-member/ics-member-service/src/main/java/com/wxy/ics/member/config/LoginProperties.java
+/develop/project/ICS/ics-member/ics-member-service/src/main/java/com/wxy/ics/member/controller/LoginController.java
+/develop/project/ICS/ics-member/ics-member-service/src/main/java/com/wxy/ics/member/controller/MemberController.java

@@ -6,14 +6,14 @@
       WARNING - @mbg.generated
     -->
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="channel" jdbcType="VARCHAR" property="channel" />
-    <result column="user_code" jdbcType="CHAR" property="userCode" />
-    <result column="buyer_code" jdbcType="CHAR" property="buyerCode" />
+    <result column="channel" jdbcType="BIGINT" property="channel" />
+    <result column="user_code" jdbcType="BIGINT" property="userCode" />
+    <result column="buyer_code" jdbcType="BIGINT" property="buyerCode" />
     <result column="buyer_type" jdbcType="BIT" property="buyerType" />
     <result column="register_time" jdbcType="TIMESTAMP" property="registerTime" />
-    <result column="member_status" jdbcType="BIT" property="memberStatus" />
-    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
-    <result column="isdelete" jdbcType="BIT" property="isdelete" />
+    <result column="member_status" jdbcType="INTEGER" property="memberStatus" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="is_delete" jdbcType="BIT" property="isDelete" />
     <result column="create_by" jdbcType="VARCHAR" property="createBy" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="update_by" jdbcType="VARCHAR" property="updateBy" />

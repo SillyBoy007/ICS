@@ -15,19 +15,19 @@ public class BaseBuyer {
     /**
      * 渠道
      */
-    private String channel;
+    private Long channel;
 
     /**
      * 用户编号
      */
     @Column(name = "user_code")
-    private String userCode;
+    private Long userCode;
 
     /**
      * 买家编号
      */
     @Column(name = "buyer_code")
-    private String buyerCode;
+    private Long buyerCode;
 
     /**
      * 买家类型
@@ -45,17 +45,19 @@ public class BaseBuyer {
      * 会员状态
      */
     @Column(name = "member_status")
-    private Boolean memberStatus;
+    private Integer memberStatus;
 
     /**
      * 创建时间
      */
-    private Date createtime;
+    @Column(name = "create_time")
+    private Date createTime;
 
     /**
      * 是否删除
      */
-    private Boolean isdelete;
+    @Column(name = "is_delete")
+    private Boolean isDelete;
 
     /**
      * 创建人
@@ -70,7 +72,7 @@ public class BaseBuyer {
     private Date updateTime;
 
     /**
-     * 更新人人
+     * 更新人
      */
     @Column(name = "update_by")
     private String updateBy;
@@ -98,7 +100,7 @@ public class BaseBuyer {
      *
      * @return channel - 渠道
      */
-    public String getChannel() {
+    public Long getChannel() {
         return channel;
     }
 
@@ -107,8 +109,8 @@ public class BaseBuyer {
      *
      * @param channel 渠道
      */
-    public void setChannel(String channel) {
-        this.channel = channel == null ? null : channel.trim();
+    public void setChannel(Long channel) {
+        this.channel = channel;
     }
 
     /**
@@ -116,7 +118,7 @@ public class BaseBuyer {
      *
      * @return user_code - 用户编号
      */
-    public String getUserCode() {
+    public Long getUserCode() {
         return userCode;
     }
 
@@ -125,8 +127,8 @@ public class BaseBuyer {
      *
      * @param userCode 用户编号
      */
-    public void setUserCode(String userCode) {
-        this.userCode = userCode == null ? null : userCode.trim();
+    public void setUserCode(Long userCode) {
+        this.userCode = userCode;
     }
 
     /**
@@ -134,7 +136,7 @@ public class BaseBuyer {
      *
      * @return buyer_code - 买家编号
      */
-    public String getBuyerCode() {
+    public Long getBuyerCode() {
         return buyerCode;
     }
 
@@ -143,8 +145,8 @@ public class BaseBuyer {
      *
      * @param buyerCode 买家编号
      */
-    public void setBuyerCode(String buyerCode) {
-        this.buyerCode = buyerCode == null ? null : buyerCode.trim();
+    public void setBuyerCode(Long buyerCode) {
+        this.buyerCode = buyerCode;
     }
 
     /**
@@ -188,7 +190,7 @@ public class BaseBuyer {
      *
      * @return member_status - 会员状态
      */
-    public Boolean getMemberStatus() {
+    public Integer getMemberStatus() {
         return memberStatus;
     }
 
@@ -197,44 +199,44 @@ public class BaseBuyer {
      *
      * @param memberStatus 会员状态
      */
-    public void setMemberStatus(Boolean memberStatus) {
+    public void setMemberStatus(Integer memberStatus) {
         this.memberStatus = memberStatus;
     }
 
     /**
      * 获取创建时间
      *
-     * @return createtime - 创建时间
+     * @return create_time - 创建时间
      */
-    public Date getCreatetime() {
-        return createtime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
     /**
      * 设置创建时间
      *
-     * @param createtime 创建时间
+     * @param createTime 创建时间
      */
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     /**
      * 获取是否删除
      *
-     * @return isdelete - 是否删除
+     * @return is_delete - 是否删除
      */
-    public Boolean getIsdelete() {
-        return isdelete;
+    public Boolean getIsDelete() {
+        return isDelete;
     }
 
     /**
      * 设置是否删除
      *
-     * @param isdelete 是否删除
+     * @param isDelete 是否删除
      */
-    public void setIsdelete(Boolean isdelete) {
-        this.isdelete = isdelete;
+    public void setIsDelete(Boolean isDelete) {
+        this.isDelete = isDelete;
     }
 
     /**
@@ -274,18 +276,18 @@ public class BaseBuyer {
     }
 
     /**
-     * 获取更新人人
+     * 获取更新人
      *
-     * @return update_by - 更新人人
+     * @return update_by - 更新人
      */
     public String getUpdateBy() {
         return updateBy;
     }
 
     /**
-     * 设置更新人人
+     * 设置更新人
      *
-     * @param updateBy 更新人人
+     * @param updateBy 更新人
      */
     public void setUpdateBy(String updateBy) {
         this.updateBy = updateBy == null ? null : updateBy.trim();

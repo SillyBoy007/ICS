@@ -8,8 +8,8 @@
     <artifactId>ics-admin</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>ics-admin-web</module>
-        <module>ics-admin-stub</module>
+        <module>ics-admin-facade</module>
+        <module>ics-admin-model</module>
     </modules>
     <packaging>pom</packaging>
     <!-- 声明使用了哪些依赖，便于后续拆分，注意：需要与大pom一致 -->
@@ -237,14 +237,14 @@
 
 
     <build>
-        <finalName>ics-member</finalName>
+        <finalName>ics-admin</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
         </resources>
-        <plugins>
+       <!-- <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
@@ -254,6 +254,6 @@
                     </delimiters>
                 </configuration>
             </plugin>
-        </plugins>
+        </plugins>-->
     </build>
 </project>

@@ -6,17 +6,16 @@
       WARNING - @mbg.generated
     -->
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="channel" jdbcType="VARCHAR" property="channel" />
-    <result column="user_code" jdbcType="CHAR" property="userCode" />
-    <result column="seller_code" jdbcType="CHAR" property="sellerCode" />
-    <result column="seller_type" jdbcType="BIT" property="sellerType" />
+    <result column="channel" jdbcType="BIGINT" property="channel" />
+    <result column="user_code" jdbcType="BIGINT" property="userCode" />
+    <result column="seller_code" jdbcType="BIGINT" property="sellerCode" />
     <result column="seller_level" jdbcType="TINYINT" property="sellerLevel" />
     <result column="register_time" jdbcType="TIMESTAMP" property="registerTime" />
     <result column="contact" jdbcType="VARCHAR" property="contact" />
-    <result column="audit_status" jdbcType="BIT" property="auditStatus" />
-    <result column="real_status" jdbcType="BIT" property="realStatus" />
-    <result column="seller_status" jdbcType="BIT" property="sellerStatus" />
-    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="audit_status" jdbcType="INTEGER" property="auditStatus" />
+    <result column="real_status" jdbcType="INTEGER" property="realStatus" />
+    <result column="seller_status" jdbcType="INTEGER" property="sellerStatus" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="is_delete" jdbcType="BIT" property="isDelete" />
     <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />

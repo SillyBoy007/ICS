@@ -15,25 +15,19 @@ public class BaseSeller {
     /**
      * 渠道
      */
-    private String channel;
+    private Long channel;
 
     /**
      * 用户编号
      */
     @Column(name = "user_code")
-    private String userCode;
+    private Long userCode;
 
     /**
      * 商家编号
      */
     @Column(name = "seller_code")
-    private String sellerCode;
-
-    /**
-     * 商家类型
-     */
-    @Column(name = "seller_type")
-    private Boolean sellerType;
+    private Long sellerCode;
 
     /**
      * 商家等级
@@ -56,24 +50,25 @@ public class BaseSeller {
      * 审核状态
      */
     @Column(name = "audit_status")
-    private Boolean auditStatus;
+    private Integer auditStatus;
 
     /**
      * 实名认证状态
      */
     @Column(name = "real_status")
-    private Boolean realStatus;
+    private Integer realStatus;
 
     /**
      * 商家状态
      */
     @Column(name = "seller_status")
-    private Boolean sellerStatus;
+    private Integer sellerStatus;
 
     /**
      * 创建时间
      */
-    private Date createtime;
+    @Column(name = "create_time")
+    private Date createTime;
 
     /**
      * 是否删除
@@ -122,7 +117,7 @@ public class BaseSeller {
      *
      * @return channel - 渠道
      */
-    public String getChannel() {
+    public Long getChannel() {
         return channel;
     }
 
@@ -131,8 +126,8 @@ public class BaseSeller {
      *
      * @param channel 渠道
      */
-    public void setChannel(String channel) {
-        this.channel = channel == null ? null : channel.trim();
+    public void setChannel(Long channel) {
+        this.channel = channel;
     }
 
     /**
@@ -140,7 +135,7 @@ public class BaseSeller {
      *
      * @return user_code - 用户编号
      */
-    public String getUserCode() {
+    public Long getUserCode() {
         return userCode;
     }
 
@@ -149,8 +144,8 @@ public class BaseSeller {
      *
      * @param userCode 用户编号
      */
-    public void setUserCode(String userCode) {
-        this.userCode = userCode == null ? null : userCode.trim();
+    public void setUserCode(Long userCode) {
+        this.userCode = userCode;
     }
 
     /**
@@ -158,7 +153,7 @@ public class BaseSeller {
      *
      * @return seller_code - 商家编号
      */
-    public String getSellerCode() {
+    public Long getSellerCode() {
         return sellerCode;
     }
 
@@ -167,26 +162,8 @@ public class BaseSeller {
      *
      * @param sellerCode 商家编号
      */
-    public void setSellerCode(String sellerCode) {
-        this.sellerCode = sellerCode == null ? null : sellerCode.trim();
-    }
-
-    /**
-     * 获取商家类型
-     *
-     * @return seller_type - 商家类型
-     */
-    public Boolean getSellerType() {
-        return sellerType;
-    }
-
-    /**
-     * 设置商家类型
-     *
-     * @param sellerType 商家类型
-     */
-    public void setSellerType(Boolean sellerType) {
-        this.sellerType = sellerType;
+    public void setSellerCode(Long sellerCode) {
+        this.sellerCode = sellerCode;
     }
 
     /**
@@ -248,7 +225,7 @@ public class BaseSeller {
      *
      * @return audit_status - 审核状态
      */
-    public Boolean getAuditStatus() {
+    public Integer getAuditStatus() {
         return auditStatus;
     }
 
@@ -257,7 +234,7 @@ public class BaseSeller {
      *
      * @param auditStatus 审核状态
      */
-    public void setAuditStatus(Boolean auditStatus) {
+    public void setAuditStatus(Integer auditStatus) {
         this.auditStatus = auditStatus;
     }
 
@@ -266,7 +243,7 @@ public class BaseSeller {
      *
      * @return real_status - 实名认证状态
      */
-    public Boolean getRealStatus() {
+    public Integer getRealStatus() {
         return realStatus;
     }
 
@@ -275,7 +252,7 @@ public class BaseSeller {
      *
      * @param realStatus 实名认证状态
      */
-    public void setRealStatus(Boolean realStatus) {
+    public void setRealStatus(Integer realStatus) {
         this.realStatus = realStatus;
     }
 
@@ -284,7 +261,7 @@ public class BaseSeller {
      *
      * @return seller_status - 商家状态
      */
-    public Boolean getSellerStatus() {
+    public Integer getSellerStatus() {
         return sellerStatus;
     }
 
@@ -293,26 +270,26 @@ public class BaseSeller {
      *
      * @param sellerStatus 商家状态
      */
-    public void setSellerStatus(Boolean sellerStatus) {
+    public void setSellerStatus(Integer sellerStatus) {
         this.sellerStatus = sellerStatus;
     }
 
     /**
      * 获取创建时间
      *
-     * @return createtime - 创建时间
+     * @return create_time - 创建时间
      */
-    public Date getCreatetime() {
-        return createtime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
     /**
      * 设置创建时间
      *
-     * @param createtime 创建时间
+     * @param createTime 创建时间
      */
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     /**

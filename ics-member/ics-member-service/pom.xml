@@ -46,8 +46,12 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-cache</artifactId>
@@ -79,53 +83,15 @@
         </dependency>
         <dependency>
             <groupId>com.wxy.cloud</groupId>
-            <artifactId>ics-member-dao</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <artifactId>ics-member-stub</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.wxy.cloud</groupId>
-            <artifactId>ics-member-stub</artifactId>
+            <artifactId>ics-member-dao</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-       <!-- <dependency>
-            <groupId>com.akucun.mshop</groupId>
-            <artifactId>mshop-member-dao</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
 
-        <dependency>
-            <groupId>com.akucun.mshop</groupId>
-            <artifactId>mshop-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.akucun.mshop</groupId>
-            <artifactId>mshop-member-stub</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.akucun</groupId>
-            <artifactId>akucun-common-base</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.akucun.member.center</groupId>
-            <artifactId>member-center-stub</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.akucun.member.center</groupId>
-                    <artifactId>member-center-common</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <artifactId>balance-client</artifactId>
-            <groupId>com.akucun.fps</groupId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>-->
 
         <!-- 三方库 -->
         <dependency>
@@ -153,22 +119,7 @@
             </exclusions>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>commons-fileupload</groupId>
-            <artifactId>commons-fileupload</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-        </dependency>
+     
 
         <!-- 其他工具 -->
         <dependency>

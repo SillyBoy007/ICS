@@ -15,19 +15,19 @@ public class BaseMember {
     /**
      * 渠道
      */
-    private String channel;
+    private Long channel;
 
     /**
      * 用户编号
      */
     @Column(name = "user_code")
-    private String userCode;
+    private Long userCode;
 
     /**
      * 用户状态
      */
     @Column(name = "user_status")
-    private Boolean userStatus;
+    private Integer userStatus;
 
     /**
      * 邀请人
@@ -44,7 +44,8 @@ public class BaseMember {
     /**
      * 创建时间
      */
-    private Date createtime;
+    @Column(name = "create_time")
+    private Date createTime;
 
     /**
      * 是否删除
@@ -71,7 +72,7 @@ public class BaseMember {
     /**
      * 性别
      */
-    private Boolean sex;
+    private Integer sex;
 
     /**
      * 是否商家
@@ -103,6 +104,38 @@ public class BaseMember {
     private String email;
 
     /**
+     * 地区
+     */
+    private String area;
+
+    /**
+     * 身高
+     */
+    private Integer height;
+
+    /**
+     * 体重
+     */
+    private Integer weight;
+
+    /**
+     * 感兴趣的品牌
+     */
+    @Column(name = "interest_brand")
+    private String interestBrand;
+
+    /**
+     * 感兴趣的品类
+     */
+    @Column(name = "interest_category")
+    private String interestCategory;
+
+    /**
+     * 简介
+     */
+    private String introduction;
+
+    /**
      * 获取主键
      *
      * @return id - 主键
@@ -125,7 +158,7 @@ public class BaseMember {
      *
      * @return channel - 渠道
      */
-    public String getChannel() {
+    public Long getChannel() {
         return channel;
     }
 
@@ -134,8 +167,8 @@ public class BaseMember {
      *
      * @param channel 渠道
      */
-    public void setChannel(String channel) {
-        this.channel = channel == null ? null : channel.trim();
+    public void setChannel(Long channel) {
+        this.channel = channel;
     }
 
     /**
@@ -143,7 +176,7 @@ public class BaseMember {
      *
      * @return user_code - 用户编号
      */
-    public String getUserCode() {
+    public Long getUserCode() {
         return userCode;
     }
 
@@ -152,8 +185,8 @@ public class BaseMember {
      *
      * @param userCode 用户编号
      */
-    public void setUserCode(String userCode) {
-        this.userCode = userCode == null ? null : userCode.trim();
+    public void setUserCode(Long userCode) {
+        this.userCode = userCode;
     }
 
     /**
@@ -161,7 +194,7 @@ public class BaseMember {
      *
      * @return user_status - 用户状态
      */
-    public Boolean getUserStatus() {
+    public Integer getUserStatus() {
         return userStatus;
     }
 
@@ -170,7 +203,7 @@ public class BaseMember {
      *
      * @param userStatus 用户状态
      */
-    public void setUserStatus(Boolean userStatus) {
+    public void setUserStatus(Integer userStatus) {
         this.userStatus = userStatus;
     }
 
@@ -213,19 +246,19 @@ public class BaseMember {
     /**
      * 获取创建时间
      *
-     * @return createtime - 创建时间
+     * @return create_time - 创建时间
      */
-    public Date getCreatetime() {
-        return createtime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
     /**
      * 设置创建时间
      *
-     * @param createtime 创建时间
+     * @param createTime 创建时间
      */
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     /**
@@ -305,7 +338,7 @@ public class BaseMember {
      *
      * @return sex - 性别
      */
-    public Boolean getSex() {
+    public Integer getSex() {
         return sex;
     }
 
@@ -314,7 +347,7 @@ public class BaseMember {
      *
      * @param sex 性别
      */
-    public void setSex(Boolean sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 
@@ -406,5 +439,113 @@ public class BaseMember {
      */
     public void setEmail(String email) {
         this.email = email == null ? null : email.trim();
+    }
+
+    /**
+     * 获取地区
+     *
+     * @return area - 地区
+     */
+    public String getArea() {
+        return area;
+    }
+
+    /**
+     * 设置地区
+     *
+     * @param area 地区
+     */
+    public void setArea(String area) {
+        this.area = area == null ? null : area.trim();
+    }
+
+    /**
+     * 获取身高
+     *
+     * @return height - 身高
+     */
+    public Integer getHeight() {
+        return height;
+    }
+
+    /**
+     * 设置身高
+     *
+     * @param height 身高
+     */
+    public void setHeight(Integer height) {
+        this.height = height;
+    }
+
+    /**
+     * 获取体重
+     *
+     * @return weight - 体重
+     */
+    public Integer getWeight() {
+        return weight;
+    }
+
+    /**
+     * 设置体重
+     *
+     * @param weight 体重
+     */
+    public void setWeight(Integer weight) {
+        this.weight = weight;
+    }
+
+    /**
+     * 获取感兴趣的品牌
+     *
+     * @return interest_brand - 感兴趣的品牌
+     */
+    public String getInterestBrand() {
+        return interestBrand;
+    }
+
+    /**
+     * 设置感兴趣的品牌
+     *
+     * @param interestBrand 感兴趣的品牌
+     */
+    public void setInterestBrand(String interestBrand) {
+        this.interestBrand = interestBrand == null ? null : interestBrand.trim();
+    }
+
+    /**
+     * 获取感兴趣的品类
+     *
+     * @return interest_category - 感兴趣的品类
+     */
+    public String getInterestCategory() {
+        return interestCategory;
+    }
+
+    /**
+     * 设置感兴趣的品类
+     *
+     * @param interestCategory 感兴趣的品类
+     */
+    public void setInterestCategory(String interestCategory) {
+        this.interestCategory = interestCategory == null ? null : interestCategory.trim();
+    }
+
+    /**
+     * 获取简介
+     *
+     * @return introduction - 简介
+     */
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    /**
+     * 设置简介
+     *
+     * @param introduction 简介
+     */
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction == null ? null : introduction.trim();
     }
 }

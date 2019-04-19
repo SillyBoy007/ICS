@@ -19,7 +19,7 @@
         <!-- 数据库链接地址账号密码 -->
         <jdbcConnection 
         	driverClass="com.mysql.jdbc.Driver" 
-        	connectionURL="jdbc:mysql://127.0.0.1:3306/ics_01"
+        	connectionURL="jdbc:mysql://127.0.0.1:3306/ics_system"
         	userId="root" 
         	password="123456">
         </jdbcConnection>
@@ -51,9 +51,7 @@
         <table tableName="BUYER" domainObjectName="BaseBuyer" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <generatedKey column="id" sqlStatement="mysql" identity="true"/>
         </table>
-        <table tableName="ACCOUNT" domainObjectName="BaseAccount" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <generatedKey column="id" sqlStatement="mysql" identity="true"/>
-        </table>
+
         <table tableName="SELLER" domainObjectName="BaseSeller" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <generatedKey column="id" sqlStatement="mysql" identity="true"/>
         </table>

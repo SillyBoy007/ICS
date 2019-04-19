@@ -1,6 +1,13 @@
 spring:
   application:
-    name: ics-member-aaa
+    name: ics-member
+
+login:
+  appid: wx123456789
+  secret: wxy0610
+  accesstokenUrl: https://api.weixin.qq.com/sns/oauth2/access_token
+  userInfoUrl: https://api.weixin.qq.com/sns/userinfo
+
 
 
 

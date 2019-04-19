@@ -1,0 +1,34 @@
+server:
+  port: 9001
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+
+feign:
+  hystrix:
+    enabled: true
+  httpclient:
+    max-connections: 7000
+    max-connections-per-route: 200
+    connection-timeout: 3000
+  client:
+    config:
+      default:
+        loggerLevel: BASIC
+
+hystrix:
+  threadpool:
+    default:
+      coreSize: 80
+      maximumSize: 120
+      allowMaximumSizeToDivergeFromCoreSize: true
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: "THREAD"
+          thread:
+            timeoutInMilliseconds: 5000

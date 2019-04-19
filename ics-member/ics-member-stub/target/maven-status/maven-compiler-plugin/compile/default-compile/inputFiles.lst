@@ -1,0 +1,6 @@
+/develop/project/ICS/ics-member/ics-member-stub/src/main/java/com/wxy/ics/member/remote/hystrix/FeignMemberHystrixImpl.java
+/develop/project/ICS/ics-member/ics-member-stub/src/main/java/com/wxy/ics/member/common/utils/ObjectBuildUtils.java
+/develop/project/ICS/ics-member/ics-member-stub/src/main/java/com/wxy/ics/member/remote/hystrix/UserServiceHystrixImpl.java
+/develop/project/ICS/ics-member/ics-member-stub/src/main/java/com/wxy/ics/member/common/enums/StatusEnum.java
+/develop/project/ICS/ics-member/ics-member-stub/src/main/java/com/wxy/ics/member/remote/UserFeignService.java
+/develop/project/ICS/ics-member/ics-member-stub/src/main/java/com/wxy/ics/member/remote/FeignMemberService.java

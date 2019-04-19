@@ -8,5 +8,5 @@ spring:
     config:
       server:
         git:
-          uri: git@github.com:SillyBoy007/microservice-config.git #git仓库地址
+          uri: https://github.com/SillyBoy007/microservice-config.git #git仓库地址
           search-paths: ics-config #git项目的目录

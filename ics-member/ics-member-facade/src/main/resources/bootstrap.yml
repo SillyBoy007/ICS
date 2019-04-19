@@ -1,8 +1,81 @@
+server:
+  port: 8001
+  tomcat:
+    uri-encoding: utf-8
 spring:
+  profiles:
+    active: dev
+  application:
+    name: ics-member
   cloud:
     config:
       name: ics-member #需要从github上读取的资源名称，没有yml后缀名
       profile: dev
       label: master
       uri: http://config3344.com:3344 #本微服务启动后先去找3344号服务,通过SpringCloud Config获取GitHub的服务地址
+
+
+eureka:
+  instance:
+      instance-id: ics-member-8001
+      prefer-ip-address: true #访问路径可以显示ip地址
+
+info:
+  app.name: ics-member
+  company.name: wang.ics-member.com
+  bulid.artifactId: $parent.artifactId$
+  bulid.version: $project.version$
+
+feign:
+  hystrix:
+    enabled: true
+
+
+
+mybatis:
+  # type-aliases扫描路径
+  type-aliases-package: com.wxy.ics.member.orm.model,com.wxy.ics.member.domain
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  configuration:
+    jdbc-type-for-null: null
+
+mapper:
+  mappers: com.wxy.ics.member.config.MyMapper
+  not-empty: false
+  identity: MYSQL
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+---
+
+spring:
+  profiles: dev
+  cloud:
+    config:
+      profile: ${spring.profiles}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+      #defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka,http://localhost:7003/eureka
+
+
+---
+
+spring:
+  profiles: test
+  cloud:
+    config:
+      profile: ${spring.profiles}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+      #defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka,http://localhost:7003/eureka
+
 

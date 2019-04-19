@@ -16,7 +16,7 @@ public enum CodeMsg {
      * 成功
      */
     SUCCESS(0, "success"),
-    SERVER_ERROR(500100, "服务端异常"),
+    FAIL(-1,"fail"),
     BIND_ERROR(500101, "参数校验异常：%s"),
     REQUEST_ILLEGAL(500102, "请求非法"),
     ACCESS_LIMIT_REACHED(500104, "访问太频繁！"),
@@ -61,7 +61,14 @@ public enum CodeMsg {
     /**
      * Http请求
      */
-    HTTP_REQUEST_FAIL(700100, "HTTP请求失败");
+    HTTP_REQUEST_FAIL(700100, "HTTP请求失败"),
+
+    /**
+     *
+     * 服务器异常
+     */
+    SERVER_ERROR(500100, "服务端异常"),
+    CONNECT_TIMEOUT(500101,"连接超时");
 
 
 

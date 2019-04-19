@@ -1,6 +1,5 @@
 package com.wxy.ics.member.service.impl;
 
-import com.wxy.ics.member.common.service.impl.BaseServiceImpl;
 import com.wxy.ics.member.domain.MemberPO;
 import com.wxy.ics.member.mapper.MemberMapper;
 import com.wxy.ics.member.orm.model.BaseMember;
