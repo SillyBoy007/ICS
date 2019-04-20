@@ -26,29 +26,23 @@ info:
   bulid.artifactId: $parent.artifactId$
   bulid.version: $project.version$
 
-feign:
-  hystrix:
-    enabled: true
 
 
-
-mybatis:
-  # type-aliases扫描路径
-  type-aliases-package: com.wxy.ics.member.orm.model,com.wxy.ics.member.domain
-  mapper-locations: classpath:mybatis/mapper/*.xml
+mybatis-plus:
   configuration:
-    jdbc-type-for-null: null
+    cache-enabled: false
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+  mapper-locations: classpath:mapper/**/*Mapper.xml
+  typeAliasesPackage: com.wxy.ics.member.dao.entity
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      table-underline: true
+      column-like: true
 
-mapper:
-  mappers: com.wxy.ics.member.config.MyMapper
-  not-empty: false
-  identity: MYSQL
 
-pagehelper:
-  helperDialect: mysql
-  reasonable: true
-  supportMethodsArguments: true
-  params: count=countSql
 ---
 
 spring:

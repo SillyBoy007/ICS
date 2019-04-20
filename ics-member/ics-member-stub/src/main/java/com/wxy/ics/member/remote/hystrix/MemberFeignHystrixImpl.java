@@ -1,5 +1,6 @@
 package com.wxy.ics.member.remote.hystrix;
 
+import com.wxy.ics.member.dto.MemberDTO;
 import com.wxy.ics.member.remote.MemberFeignService;
 import com.wxy.ics.member.vo.MemberVO;
 import com.wxy.ics.member.vo.ReturnResultVO;
@@ -15,6 +16,11 @@ import static com.wxy.ics.member.common.enums.StatusEnum.*;
 public class MemberFeignHystrixImpl implements MemberFeignService {
     @Override
     public ReturnResultVO<MemberVO> getMemberById(Long id) {
+        return ReturnResultVO.error(CONNECT_TIMEOUT.getCode(),CONNECT_TIMEOUT.getMsg());
+    }
+
+    @Override
+    public ReturnResultVO<Void> addMember(MemberDTO memberDTO) {
         return ReturnResultVO.error(CONNECT_TIMEOUT.getCode(),CONNECT_TIMEOUT.getMsg());
     }
 }

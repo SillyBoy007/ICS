@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wxy.ics.member.dao.mapper.BaseFriendsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wxy.ics.member.dao.entity.FriendsPO">
+        <id column="id" property="id" />
+        <result column="channel" property="channel" />
+        <result column="user_code" property="userCode" />
+        <result column="friend_user_code" property="friendUserCode" />
+        <result column="friend_buyer_code" property="friendBuyerCode" />
+        <result column="friend_seller_code" property="friendSellerCode" />
+        <result column="friend_remark" property="friendRemark" />
+        <result column="friend_nike_name" property="friendNikeName" />
+        <result column="friend_avator" property="friendAvator" />
+        <result column="short_name" property="shortName" />
+        <result column="first_name" property="firstName" />
+        <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
+        <result column="is_delete" property="isDelete" />
+        <result column="create_by" property="createBy" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="mobile" property="mobile" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, channel, user_code, friend_user_code, friend_buyer_code, friend_seller_code, friend_remark, friend_nike_name, friend_avator, short_name, first_name, status, create_time, is_delete, create_by, update_by, update_time, mobile
+    </sql>
+
+</mapper>

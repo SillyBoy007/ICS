@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wxy.ics.member.dao.mapper.BaseMemberMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wxy.ics.member.dao.entity.MemberPO">
+        <id column="id" property="id" />
+        <result column="channel" property="channel" />
+        <result column="user_code" property="userCode" />
+        <result column="user_status" property="userStatus" />
+        <result column="invite_user_id" property="inviteUserId" />
+        <result column="login_time" property="loginTime" />
+        <result column="create_time" property="createTime" />
+        <result column="is_delete" property="isDelete" />
+        <result column="nike_name" property="nikeName" />
+        <result column="avator" property="avator" />
+        <result column="birthday" property="birthday" />
+        <result column="sex" property="sex" />
+        <result column="is_seller" property="isSeller" />
+        <result column="create_by" property="createBy" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="email" property="email" />
+        <result column="area" property="area" />
+        <result column="height" property="height" />
+        <result column="weight" property="weight" />
+        <result column="interest_brand" property="interestBrand" />
+        <result column="interest_category" property="interestCategory" />
+        <result column="introduction" property="introduction" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, channel, user_code, user_status, invite_user_id, login_time, create_time, is_delete, nike_name, avator, birthday, sex, is_seller, create_by, update_by, update_time, email, area, height, weight, interest_brand, interest_category, introduction
+    </sql>
+
+</mapper>

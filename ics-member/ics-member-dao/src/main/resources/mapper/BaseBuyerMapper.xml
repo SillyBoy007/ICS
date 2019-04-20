@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wxy.ics.member.dao.mapper.BaseBuyerMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wxy.ics.member.dao.entity.BuyerPO">
+        <id column="id" property="id" />
+        <result column="channel" property="channel" />
+        <result column="user_code" property="userCode" />
+        <result column="buyer_code" property="buyerCode" />
+        <result column="buyer_type" property="buyerType" />
+        <result column="register_time" property="registerTime" />
+        <result column="member_status" property="memberStatus" />
+        <result column="create_time" property="createTime" />
+        <result column="is_delete" property="isDelete" />
+        <result column="create_by" property="createBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="update_by" property="updateBy" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, channel, user_code, buyer_code, buyer_type, register_time, member_status, create_time, is_delete, create_by, update_time, update_by
+    </sql>
+
+</mapper>

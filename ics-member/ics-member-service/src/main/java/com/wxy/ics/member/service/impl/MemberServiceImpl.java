@@ -1,10 +1,9 @@
 package com.wxy.ics.member.service.impl;
 
-import com.wxy.ics.member.domain.MemberPO;
-import com.wxy.ics.member.mapper.MemberMapper;
-import com.wxy.ics.member.orm.model.BaseMember;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.wxy.ics.member.dao.entity.MemberPO;
+import com.wxy.ics.member.dao.mapper.BaseMemberMapper;
 import com.wxy.ics.member.service.MemberService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,12 +14,5 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service("memberService")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
-public class MemberServiceImpl extends BaseServiceImpl<BaseMember> implements MemberService {
-    @Autowired
-    MemberMapper memberMapper;
-
-    @Override
-    public MemberPO getMemberByOpenId(String openId) {
-        return  memberMapper.getMemberByOpenId(openId);
-    }
+public class MemberServiceImpl extends ServiceImpl<BaseMemberMapper, MemberPO> implements MemberService {
 }

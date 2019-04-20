@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wxy.ics.member.dao.mapper.BaseSellerMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wxy.ics.member.dao.entity.SellerPO">
+        <id column="id" property="id" />
+        <result column="channel" property="channel" />
+        <result column="user_code" property="userCode" />
+        <result column="seller_code" property="sellerCode" />
+        <result column="seller_level" property="sellerLevel" />
+        <result column="register_time" property="registerTime" />
+        <result column="contact" property="contact" />
+        <result column="audit_status" property="auditStatus" />
+        <result column="real_status" property="realStatus" />
+        <result column="seller_status" property="sellerStatus" />
+        <result column="create_time" property="createTime" />
+        <result column="is_delete" property="isDelete" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="create_by" property="createBy" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, channel, user_code, seller_code, seller_level, register_time, contact, audit_status, real_status, seller_status, create_time, is_delete, update_by, update_time, create_by
+    </sql>
+
+</mapper>

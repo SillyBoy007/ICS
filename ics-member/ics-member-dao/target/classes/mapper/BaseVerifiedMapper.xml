@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wxy.ics.member.dao.mapper.BaseVerifiedMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wxy.ics.member.dao.entity.VerifiedPO">
+        <id column="id" property="id" />
+        <result column="channel" property="channel" />
+        <result column="user_code" property="userCode" />
+        <result column="card_id" property="cardId" />
+        <result column="real_name" property="realName" />
+        <result column="create_time" property="createTime" />
+        <result column="is_delete" property="isDelete" />
+        <result column="create_by" property="createBy" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, channel, user_code, card_id, real_name, create_time, is_delete, create_by, update_by, update_time
+    </sql>
+
+</mapper>

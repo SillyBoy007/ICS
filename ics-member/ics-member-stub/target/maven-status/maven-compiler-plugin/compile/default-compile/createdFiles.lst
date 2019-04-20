@@ -1,6 +1,4 @@
-com/wxy/ics/member/remote/hystrix/UserServiceHystrixImpl.class
-com/wxy/ics/member/remote/UserFeignService.class
+com/wxy/ics/member/remote/MemberFeignService.class
+com/wxy/ics/member/remote/hystrix/MemberFeignHystrixImpl.class
 com/wxy/ics/member/common/utils/ObjectBuildUtils.class
 com/wxy/ics/member/common/enums/StatusEnum.class
-com/wxy/ics/member/remote/FeignMemberService.class
-com/wxy/ics/member/remote/hystrix/FeignMemberHystrixImpl.class

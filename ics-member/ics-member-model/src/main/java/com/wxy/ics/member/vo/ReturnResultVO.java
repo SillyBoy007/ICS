@@ -40,6 +40,16 @@ public class ReturnResultVO<T> implements Serializable{
         result.setSuccess(false);
         return result;
     }
+    public static <T> ReturnResultVO<T> success() {
+        ReturnResultVO<T> result = new ReturnResultVO<T>(0,"ok",null);
+        result.setSuccess(true);
+        return result;
+    }
+    public static <T> ReturnResultVO<T> success(String message) {
+        ReturnResultVO<T> result = new ReturnResultVO<T>(0,message,null);
+        result.setSuccess(true);
+        return result;
+    }
     public static <T> ReturnResultVO<T> success(String message, T data) {
         ReturnResultVO<T> result = new ReturnResultVO<T>(0,message,data);
         result.setSuccess(true);

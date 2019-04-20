@@ -1,14 +1,13 @@
 package com.wxy.ics.member.service;
 
 
-import com.wxy.ics.member.domain.MemberPO;
-import com.wxy.ics.member.orm.model.BaseMember;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.wxy.ics.member.dao.entity.MemberPO;
 
 /**
  *MemberService
  * @author wxy
  * @date 2019/03/14
  */
-public interface MemberService extends BaseService<BaseMember> {
-    MemberPO getMemberByOpenId(String openId);
+public interface MemberService extends IService<MemberPO> {
 }

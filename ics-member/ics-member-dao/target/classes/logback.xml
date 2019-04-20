@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+
+    <!--随环境变化的变量  先从启动命令获取 如果没有 从项目的 properties 或者 yml文件获取 如果没有 选择默认值-->
+    <springProperty scope="context" name="AKUCUN_LOG_LEVEL" source="akucun.log.level" defaultValue="DEBUG"/>
+    <property name="LOG_LEVEL" value="${log.level:-${AKUCUN_LOG_LEVEL:-debug}}"/>
+
+    <!--随环境变化的变量  先从启动命令获取 如果没有 从项目的 properties 或者 yml文件获取 如果没有 选择默认值-->
+    <springProperty scope="context" name="APP_NAME_SPRING" source="spring.application.name"/>
+    <property name="APP_NAME" value="${deploy.app.name:-${APP_NAME_SPRING:-app}}"/>
+
+    <!--配置规则类的位置-->
+    <!--<conversionRule conversionWord="ip" converterClass="com.akucun.common.config.IPLogConfig" />-->
+    <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
+    <property name="LOG_HOME" value="/Users/wxy/logs/${APP_NAME}-app/" />
+    <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+    <!--<property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS}|%t|%ip|%-5level|%c|%X{fishing-tag}|%msg%n" />-->
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS}|%t|%-5level|%c|%X{fishing-tag}|%msg%n" />
+    <!-- 彩色日志 -->
+    <!-- 彩色日志依赖的渲染类 -->
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
+    <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
+    <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
+    <!-- 彩色日志格式 -->
+    <property name="CONSOLE_LOG_PATTERN" value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}" />
+
+    <!-- 控制台输出 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 按照每天生成日志文件 -->
+    <appender name="FileInfoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/app.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+
+            <!--日志文件输出的文件名-->
+            <fileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd}.log.%i</fileNamePattern>
+            <!--日志文件保留天数-->
+            <maxHistory>5</maxHistory>
+            <!--日志文件最大的大小-->
+            <maxFileSize>1024MB</maxFileSize>
+            <totalSizeCap>5GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FileErrorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/app_error.log</file>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+        <!--滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--路径-->
+            <fileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd}_error.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <!--过滤掉spring和mybatis的一些无用的DEBUG信息-->
+    <Logger name="org.springframework" level="INFO"/>
+    <Logger name="org.mybatis" level="INFO"/>
+    <Logger name="com.netflix.discovery" level="INFO"/>
+    <Logger name="org.apache.http" level="INFO"/>
+    <Logger name="org.apache.http" level="INFO"/>
+    <Logger name="com.netflix.discovery" level="INFO"/>
+    <Logger name="org.apache.zookeeper" level="INFO"/>
+    <Logger name="org.quartz.core" level="INFO"/>
+    <logger name="org.apache" level="INFO"/>
+    <logger name="org.hibernate.validator" level="INFO"/>
+    <logger name="springfox.documentation" level="INFO"/>
+    <!-- 日志输出级别 -->
+    <root level="${LOG_LEVEL}">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FileInfoLog"/>
+        <appender-ref ref="FileErrorLog"/>
+    </root>
+</configuration>

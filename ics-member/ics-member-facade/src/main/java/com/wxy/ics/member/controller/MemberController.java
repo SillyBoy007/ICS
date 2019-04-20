@@ -1,19 +1,22 @@
 package com.wxy.ics.member.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.wxy.ics.common.utils.SnowIdUtils;
 import com.wxy.ics.member.common.utils.ObjectBuildUtils;
-import com.wxy.ics.member.domain.MemberPO;
-import com.wxy.ics.member.orm.model.BaseMember;
+import com.wxy.ics.member.dao.entity.MemberPO;
+import com.wxy.ics.member.dto.MemberDTO;
 import com.wxy.ics.member.remote.MemberFeignService;
 import com.wxy.ics.member.service.MemberService;
 import com.wxy.ics.member.vo.MemberVO;
+import com.wxy.ics.member.vo.QueryRequestVO;
 import com.wxy.ics.member.vo.ReturnResultVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
+import static com.wxy.ics.common.enums.CodeMsg.FAIL;
 import static com.wxy.ics.common.enums.CodeMsg.SERVER_ERROR;
 import static com.wxy.ics.common.enums.CodeMsg.SUCCESS;
 
@@ -23,20 +26,20 @@ import static com.wxy.ics.common.enums.CodeMsg.SUCCESS;
  * @date 2019/03/14
  */
 @RestController
-@RequestMapping("/api/member")
 @Slf4j
-public class MemberController extends BaseController {
+public class MemberController extends BaseController implements MemberFeignService{
     @Autowired
     MemberService memberService;
 
-
-    @RequestMapping(value = "/get/{id}",method = RequestMethod.GET)
+    @GetMapping(value = "/member/query/{id}")
     public ReturnResultVO<MemberVO> getMemberById(@PathVariable("id") Long id){
         ReturnResultVO<MemberVO> returnResult;
         try {
             returnResult = new ReturnResultVO<>();
             returnResult.setCode(SUCCESS.getKey());
-            BaseMember baseMember = memberService.selectByKey(id);
+            QueryWrapper<MemberPO> queryWrapper = new QueryWrapper<>();
+            queryWrapper.lambda().eq(MemberPO::getId,id);
+            MemberPO baseMember = memberService.getOne(queryWrapper);
             MemberVO memberVO = ObjectBuildUtils.copy(baseMember, MemberVO.class);
             returnResult.setData(memberVO);
             returnResult.setMsg(SUCCESS.getMessage());
@@ -50,29 +53,22 @@ public class MemberController extends BaseController {
             log.error("查询id为{}的用户异常",id,e);
             return returnResult;
         }
-
     }
 
-/*
-    @RequestMapping(value = "/get/member", method = RequestMethod.GET)
-*/
-    public ReturnResultVO<MemberPO> getMemberByOpenId(){
-        ReturnResultVO<MemberPO> returnResult;
-        try {
-            returnResult = new ReturnResultVO<>();
-            returnResult.setCode(SUCCESS.getKey());
-            returnResult.setData(memberService.getMemberByOpenId("we"));
-            returnResult.setMsg(SUCCESS.getMessage());
-            returnResult.setSuccess(true);
-            return returnResult;
-        }catch (Exception e){
-            returnResult = new ReturnResultVO<>();
-            returnResult.setCode(SERVER_ERROR.getKey());
-            returnResult.setMsg(SERVER_ERROR.getMessage());
-            returnResult.setSuccess(false);
-           log.error("根据openId查询用户异常",e);
-            return returnResult;
+    @PostMapping(value = "/member/add")
+    @Override
+    public ReturnResultVO<Void> addMember(@RequestBody MemberDTO memberDTO) {
+        MemberPO baseMember = ObjectBuildUtils.copy(memberDTO, MemberPO.class);
+        baseMember.setCreateTime(new Date());
+        baseMember.setUserCode(SnowIdUtils.createUserCode());
+        baseMember.setId(SnowIdUtils.createUserCode());
+        boolean save = memberService.save(baseMember);
+        if (save){
+            return ReturnResultVO.success();
+        }else{
+            return ReturnResultVO.error(FAIL.getKey(),FAIL.getMessage());
         }
-
     }
+
+
 }
