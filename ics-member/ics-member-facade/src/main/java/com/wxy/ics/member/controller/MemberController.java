@@ -8,7 +8,6 @@ import com.wxy.ics.member.dto.MemberDTO;
 import com.wxy.ics.member.remote.MemberFeignService;
 import com.wxy.ics.member.service.MemberService;
 import com.wxy.ics.member.vo.MemberVO;
-import com.wxy.ics.member.vo.QueryRequestVO;
 import com.wxy.ics.member.vo.ReturnResultVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +15,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
-import static com.wxy.ics.common.enums.CodeMsg.FAIL;
-import static com.wxy.ics.common.enums.CodeMsg.SERVER_ERROR;
-import static com.wxy.ics.common.enums.CodeMsg.SUCCESS;
+import static com.wxy.ics.common.enums.CodeEnum.FAIL;
+import static com.wxy.ics.common.enums.CodeEnum.SUCCESS;
+
 
 /**
  *MemberController
@@ -34,25 +33,17 @@ public class MemberController extends BaseController implements MemberFeignServi
     @GetMapping(value = "/member/query/{id}")
     public ReturnResultVO<MemberVO> getMemberById(@PathVariable("id") Long id){
         ReturnResultVO<MemberVO> returnResult;
-        try {
-            returnResult = new ReturnResultVO<>();
-            returnResult.setCode(SUCCESS.getKey());
-            QueryWrapper<MemberPO> queryWrapper = new QueryWrapper<>();
-            queryWrapper.lambda().eq(MemberPO::getId,id);
-            MemberPO baseMember = memberService.getOne(queryWrapper);
-            MemberVO memberVO = ObjectBuildUtils.copy(baseMember, MemberVO.class);
-            returnResult.setData(memberVO);
-            returnResult.setMsg(SUCCESS.getMessage());
-            returnResult.setSuccess(true);
-            return returnResult;
-        }catch (Exception e){
-            returnResult = new ReturnResultVO<>();
-            returnResult.setCode(SERVER_ERROR.getKey());
-            returnResult.setMsg(SERVER_ERROR.getMessage());
-            returnResult.setSuccess(false);
-            log.error("查询id为{}的用户异常",id,e);
-            return returnResult;
-        }
+        returnResult = new ReturnResultVO<>();
+        returnResult.setCode(SUCCESS.getKey());
+        QueryWrapper<MemberPO> queryWrapper = new QueryWrapper<>();
+        queryWrapper.lambda().eq(MemberPO::getId,id);
+        MemberPO baseMember = memberService.getOne(queryWrapper);
+        MemberVO memberVO = ObjectBuildUtils.copy(baseMember, MemberVO.class);
+        returnResult.setData(memberVO);
+        returnResult.setMsg(SUCCESS.getMessage());
+        returnResult.setSuccess(true);
+        return returnResult;
+
     }
 
     @PostMapping(value = "/member/add")

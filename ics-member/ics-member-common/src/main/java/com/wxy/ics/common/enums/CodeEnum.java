@@ -11,12 +11,16 @@ package com.wxy.ics.common.enums;
  * @author wxy
  * @date 2019/03/14
  */
-public enum CodeMsg {
+public enum CodeEnum {
     /**
      * 成功
      */
     SUCCESS(0, "success"),
     FAIL(-1,"fail"),
+    SYSTEM_EXCEPTION(500,"未知异常，请联系管理员"),
+    ILLEGAL_ARGUMENT(100,"参数错误"),
+
+
     BIND_ERROR(500101, "参数校验异常：%s"),
     REQUEST_ILLEGAL(500102, "请求非法"),
     ACCESS_LIMIT_REACHED(500104, "访问太频繁！"),
@@ -75,7 +79,7 @@ public enum CodeMsg {
     private int key;
     private String message;
 
-    private CodeMsg(int key, String message) {
+    private CodeEnum(int key, String message) {
         this.key = key;
         this.message = message;
     }

@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static com.wxy.ics.common.enums.CodeMsg.*;
+import static com.wxy.ics.common.enums.CodeEnum.*;
 
 /**
  * Http请求工具类
