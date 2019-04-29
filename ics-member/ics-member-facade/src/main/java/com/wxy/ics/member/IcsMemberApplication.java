@@ -1,5 +1,7 @@
 package com.wxy.ics.member;
 
+import com.alicp.jetcache.anno.config.EnableCreateCacheAnnotation;
+import com.alicp.jetcache.anno.config.EnableMethodCache;
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +23,8 @@ import java.time.LocalTime;
 @MapperScan(basePackages = {"com.wxy.ics.member.dao.mapper"})
 @EnableEurekaClient
 @EnableFeignClients(basePackages = {"com.wxy.ics.*"})
+@EnableCreateCacheAnnotation
+@EnableMethodCache(basePackages = "com.wxy.ics")
 public class IcsMemberApplication {
 
     private static Logger log = LoggerFactory.getLogger(IcsMemberApplication.class);

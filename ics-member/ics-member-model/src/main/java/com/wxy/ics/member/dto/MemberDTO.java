@@ -1,5 +1,6 @@
 package com.wxy.ics.member.dto;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.ToString;
 
@@ -21,6 +22,7 @@ public class MemberDTO {
     /**
      * 用户编号
      */
+    @ApiModelProperty(value = "用户编号",  notes = "用户编号")
     private Long userCode;
 
     /**
@@ -51,6 +53,7 @@ public class MemberDTO {
     /**
      * 昵称
      */
+    @ApiModelProperty(value = "用户昵称",  notes = "用户昵称")
     private String nikeName;
 
     /**

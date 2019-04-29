@@ -1,5 +1,6 @@
 package com.wxy.ics.member.vo;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.ToString;
 
@@ -21,11 +22,13 @@ public class MemberVO {
     /**
      * 用户编号
      */
+    @ApiModelProperty(value = "用户编号",  notes = "用户编号")
     private Long userCode;
 
     /**
      * 用户状态
      */
+    @ApiModelProperty(value = "用户状态",  notes = "用户状态")
     private Integer userStatus;
 
     /**
@@ -51,6 +54,7 @@ public class MemberVO {
     /**
      * 昵称
      */
+    @ApiModelProperty(value = "用户昵称",  notes = "用户昵称")
     private String nikeName;
 
     /**

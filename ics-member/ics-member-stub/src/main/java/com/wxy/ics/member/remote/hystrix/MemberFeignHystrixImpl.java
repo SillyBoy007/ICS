@@ -1,6 +1,7 @@
 package com.wxy.ics.member.remote.hystrix;
 
 import com.wxy.ics.member.dto.MemberDTO;
+import com.wxy.ics.member.entity.PageResponse;
 import com.wxy.ics.member.remote.MemberFeignService;
 import com.wxy.ics.member.vo.MemberVO;
 import com.wxy.ics.member.vo.ReturnResultVO;
@@ -21,6 +22,11 @@ public class MemberFeignHystrixImpl implements MemberFeignService {
 
     @Override
     public ReturnResultVO<Void> addMember(MemberDTO memberDTO) {
+        return ReturnResultVO.error(CONNECT_TIMEOUT.getCode(),CONNECT_TIMEOUT.getMsg());
+    }
+
+    @Override
+    public ReturnResultVO<PageResponse<MemberVO>> queryMemberPageList(int pageNum, int pageSize) {
         return ReturnResultVO.error(CONNECT_TIMEOUT.getCode(),CONNECT_TIMEOUT.getMsg());
     }
 }
